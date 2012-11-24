@@ -1,9 +1,27 @@
 <html>
 <head>
-<h1>
-Eli Albert, brain researcher and web developer.  
-</h1>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width initial-scale=1.0">
+<title>Eli "the monster" Albert</title>
+<link href="media/bootstrap.min.css" rel="stylesheet">
+</head>
 <body>
+<div class="container-fluid">
+<br/><br/>
+<div class="row-fluid">
+<div class="hero-unit span8 offset2">
+<h2>
+Eli Albert, brain researcher and web developer.  
+</h2>
+<br/>
+<p>t: <span id="status"></span></p>
+</div>
+</div>
+
+
+<div class="row-fluid">
+<div class="span8 offset2" style="background-color:#EEE;">
+
 <p>
 <a href="http://www.github.com/elialbert">My work on Github</a>
 </p>
@@ -15,16 +33,36 @@ If you go to the <a href="http://www.simplerelevance.com/products">products page
 Here's a page for a new project I'm working on: <a href="http://UpChicago.org">UpChicago.org</a>. That's me learning how to be a web designer.
 </p>
 <p>
-Oh, and here's another example of my measly but hilarious web design chops: <a href="http://www.theribcage.net">the ribcage</a>. It's the home page for my house.
+Oh, and here's another example of my measly but quickly improving design chops: <a href="http://www.theribcage.net">the ribcage</a>. It's the home page for my house.
 </p>
 <p>
 This is the initial spike for a jquery plugin that uses twitter and the clients' computers to host, manage, and display comments for the given website (free commenting for small self-run and self-hosted sites): <a href="https://bitbucket.org/elialbert/jeasycom/src/561c3cf46119/jeasytest/jeasycomtest/static/jeasyCom.js">JeasyCom</a>
 </p>
 <p>
-I also have a <a href="http://www.bitbucket.org/elialbert">bitbucket account</a> with more repositories. I have been building up various API wrappers in Python/Django for things like IContact, Constantcontact, Mailchimp, Magento, XCom, EmailDirect, among others, (mostly for work) and I hope to release them all very soon.
+I also have a <a href="http://www.bitbucket.org/elialbert">bitbucket account</a> with more repositories. I have been building up various API wrappers in Python/Django for things like IContact, Constantcontact, Mailchimp, Magento, XCom, EmailDirect, Shopify, BigCommerce, ExactTarget, etc etc, (mostly for work) and I hope to release them all very soon.
 </p>
 <p>
 Sometimes I write down difficult fixes for things in a blog which you can find <a href="http://creaturefeaturecode.blogspot.com">here</a>.
+</div>
+</div>
+</div>
 </body>
-</head>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js" type="text/javascript"></script>
+<script>
+function get_status() {
+    $.getJSON("https://api.twitter.com/1/statuses/user_timeline.json?include_entities=false&include_rts=false&screen_name=elialbert&count=1&callback=?",
+	      {
+		  format: "json",
+		      },
+	      function(data) {
+		  $('#status').html(data[0]['text']);
+	      }
+	      );
+}
+
+$(document).ready(function() {
+	get_status();
+});
+</script>
+
 </html>
