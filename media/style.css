@@ -1,4 +1,18 @@
+
+@media (max-width: 600px) {
+    #subheader {
+	font-size: 14px;
+	line-height: 14px;
+    }
+}
+
+#subheader {
+    text-align: center;
+    margin-bottom: 80px;
+}
+
 #logo {
+    margin-top: 30px;
     margin-left: auto;
     margin-right: auto;
     display: block;
@@ -10,6 +24,7 @@
 
 #maintext {
     /*background-color:#FFF183;*/
+    padding:10px;
     background-color: #F3E521;
     border-radius:6px;
     color: #2C4E2A;/*23C51B;*/
