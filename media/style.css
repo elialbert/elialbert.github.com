@@ -1,0 +1,14 @@
+#logo {
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+}
+
+#mainhero {
+    background-color: #fff;
+}
+
+#maintext {
+    background-color:#FFF183;
+    border-radius:6px;
+}
