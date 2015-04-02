@@ -9,6 +9,11 @@
 }
 
 #maintext {
-    background-color:#FFF183;
+    /*background-color:#FFF183;*/
+    background-color: #F3E521;
     border-radius:6px;
+    color: #2C4E2A;/*23C51B;*/
+}
+#maintext a {
+    color: #B81988;
 }
