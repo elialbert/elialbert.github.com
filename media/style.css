@@ -8,7 +8,7 @@
 
 #subheader {
     text-align: center;
-    margin-bottom: 80px;
+    margin-bottom: 50px;
 }
 
 #logo {
@@ -31,5 +31,40 @@
 }
 #maintext a {
     color: #B81988;
+}
+
+.find-me {
+    padding-left: 40px;
+}
+.grid {
+    margin: 20px;
+}
+@media only screen and (max-width: 500px) {
+    .grid-item {
+        width: 35%;
+    }
+}
+
+@media only screen and (min-width: 500px) {
+    .grid-item {
+        width: 25%;
+    }
+}
+
+.grid-item { 
+    background-color: #F3E521;
+    color: #2C4E2A;/*23C51B;*/
+    border-radius:6px;
+    padding: 10px;
+
+}
+
+.grid-img {
+    height: 30%;
+    width: 50%;
+    margin-top: 7px;
+    margin-bottom: 7px;
+    margin-left: auto;
+    margin-right: auto;
 }
 /*http://paletton.com/#uid=3540z0kllllAAS1rBuwf4ca8O2+*/
