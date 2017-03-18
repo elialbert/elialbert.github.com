@@ -73,11 +73,13 @@
   ga('create', 'UA-61651137-1', 'auto');
   ga('send', 'pageview');
 
-  $('.grid').packery({
-    // options
-    itemSelector: '.grid-item',
-    gutter: 20
-  });
+  $(function () {
+    $('.grid').packery({
+      // options
+      itemSelector: '.grid-item',
+      gutter: 20
+    });
+  })
 
 </script>
 
