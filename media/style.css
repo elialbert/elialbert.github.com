@@ -38,33 +38,43 @@
 }
 .grid {
     margin: 20px;
+    -ms-box-orient: horizontal;
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -moz-flex;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-wrap: wrap;
+    flex-wrap: wrap;
+    -webkit-flex-direction: row;
+    flex-direction: row;
+    justify-content: center;
 }
 @media only screen and (max-width: 500px) {
-    .grid-item {
-        width: 35%;
+    .item {
+        width: 300px;
     }
 }
 
-@media only screen and (min-width: 500px) {
-    .grid-item {
+@media only screen and (max-width: 600px) and (min-width: 500px) {
+    .item {
+        width: 130px;
+    }
+}
+
+/*@media only screen and (min-width: 600px) {
+    .item {
         width: 25%;
     }
-}
+}*/
 
-.grid-item { 
+.item {
     background-color: #F3E521;
     color: #2C4E2A;/*23C51B;*/
     border-radius:6px;
-    padding: 10px;
-
-}
-
-.grid-img {
-    height: 30%;
-    width: 50%;
-    margin-top: 7px;
-    margin-bottom: 7px;
-    margin-left: auto;
-    margin-right: auto;
+    padding: 25px;
+    margin: 10px;
+    width: 300px;
 }
 /*http://paletton.com/#uid=3540z0kllllAAS1rBuwf4ca8O2+*/
