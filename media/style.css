@@ -4,6 +4,9 @@
 	font-size: 14px;
 	line-height: 14px;
     }
+    span.find-me {
+        padding-left: 0px;
+    }
 }
 
 #subheader {
