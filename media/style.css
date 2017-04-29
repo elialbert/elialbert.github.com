@@ -14,9 +14,8 @@ body {
 #subheader {
     text-align: center;
     margin-bottom: 50px;
-    color: #ababfd;
+    color: #EBD502;
 }
-
 #logo {
     margin-top: 30px;
     margin-left: auto;
@@ -101,7 +100,7 @@ a:hover {
     background-color: #FFE700;
     color: #333577;/*23C51B;*/
     border-radius:6px;
-    border: 2px solid black;
+    border: 2px solid #191DA4;
     padding: 25px;
     margin: 10px;
     width: 300px;
