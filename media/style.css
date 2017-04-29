@@ -1,4 +1,6 @@
-
+body {
+    background-color: #940299;
+}
 @media (max-width: 600px) {
     #subheader {
 	font-size: 14px;
@@ -12,6 +14,7 @@
 #subheader {
     text-align: center;
     margin-bottom: 50px;
+    color: #ababfd;
 }
 
 #logo {
@@ -20,13 +23,7 @@
     margin-right: auto;
     display: block;
 }
-
-#mainhero {
-    background-color: #fff;
-}
-
 #maintext {
-    /*background-color:#FFF183;*/
     padding:10px;
     background-color: #F3E521;
     border-radius:6px;
@@ -66,18 +63,48 @@
     }
 }
 
-/*@media only screen and (min-width: 600px) {
-    .item {
-        width: 25%;
-    }
-}*/
+.line-break {
+    width: 100%;
+}
+.item-img:not(.item) {
+    max-width: 500px;
+    align-self: center;
+    justify-content: center;
+}
+.item img {
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+}
+
+.item-title a {
+    font-weight: bolder;
+    font-size: 18px;
+    text-align: center;
+    display: block;
+    margin-bottom: 8px;
+    padding: 4px;
+}
+a:link {
+    padding: 4px;
+    color: #940299;
+    background-color: #EBD502;
+}
+a:visited {
+    color: #191DA4;
+}
+a:hover {
+    color: #CE00D5;
+}
 
 .item {
-    background-color: #F3E521;
-    color: #2C4E2A;/*23C51B;*/
+    background-color: #FFE700;
+    color: #333577;/*23C51B;*/
     border-radius:6px;
+    border: 2px solid black;
     padding: 25px;
     margin: 10px;
     width: 300px;
 }
+/*http://paletton.com/#uid=31D0u0kllll0B54aYddvIttZdLO*/
 /*http://paletton.com/#uid=3540z0kllllAAS1rBuwf4ca8O2+*/
