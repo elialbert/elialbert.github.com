@@ -7,7 +7,7 @@
 <link href="media/style.css" rel="stylesheet">
 <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
 </head>
-<body>
+<body class='background'>
   <div class="container-fluid">
     <br/><br/>
     <div class="row-fluid">
@@ -90,6 +90,18 @@
   ga('create', 'UA-61651137-1', 'auto');
   ga('send', 'pageview');
 
+</script>
+
+<script>
+  $.get('https://s3.amazonaws.com/qs-storage/qs-data.json?crossorigin=anonymous').then(
+    function(x) {
+      data = JSON.parse(x);
+      $('.background').css('background-color', data['inverted']);
+      $('.item').css('background-color', data['main']);
+      $('.item').css('color', data['third']);
+      console.log(data);
+    }
+  );
 </script>
 
 </html>

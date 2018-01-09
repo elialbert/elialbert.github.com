@@ -14,7 +14,7 @@ body {
 #subheader {
     text-align: center;
     margin-bottom: 50px;
-    color: #EBD502;
+    color: #e8ecf2; /* #EBD502; */
 }
 #logo {
     margin-top: 30px;
@@ -87,7 +87,7 @@ body {
 a:link {
     padding: 4px;
     color: #940299;
-    background-color: #EBD502;
+    background-color: #e8ecf2;
 }
 a:visited {
     color: #191DA4;
