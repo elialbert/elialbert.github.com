@@ -47,7 +47,7 @@
           </div>
           <div class="item">
             <div class='item-title'><a href="http://starchess.upchicago.org">StarChess online!</a></div>
-            Another cool game I made - a live multiplayer chess variant board game involving hexagons using rails + angular. Soure is <a href="https://github.com/elialbert/starchess">here</a>.
+            Another cool game I made - a live multiplayer chess variant board game involving hexagons using rails + angular. Source is <a href="https://github.com/elialbert/starchess">here</a>.
           </div>
           <div class="line-break"></div>
           <div class='item item-img'><img class='starchess-cap' src="media/starchess3.jpg"/></div>
@@ -96,10 +96,10 @@
   $.get('https://s3.amazonaws.com/qs-storage/qs-data.json?crossorigin=anonymous').then(
     function(x) {
       data = JSON.parse(x);
-      $('.background').css('background-color', data['inverted']);
+      $('.background').css('background-color', data['comp1']);
       $('.item').css('background-color', data['main']);
-      $('.item').css('color', data['third']);
-      console.log(data);
+      $('.item').css('border', '2px solid ' + data['comp2']);
+      $('.item').css('color', data['bw']);      
     }
   );
 </script>
