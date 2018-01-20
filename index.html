@@ -16,14 +16,17 @@
 
         <h2 id="subheader">
           (@elialbert: coder tinker musician spy)
+          <br/>
+          <a id='color-link' href='https://medium.com/@elialbert/quantified-self-and-color-schemes-5bc1d78179cc'>(What's with these weird & changing colors?)</a>
         </h2>
+
       </div>
     </div>
 
     <div class="row-fluid">
       <div class="span8 offset2 item find-me-div">
         <span class="find-me">
-          <a href="http://www.github.com/elialbert">Github</a> | <a href="http://stackoverflow.com/users/643721/eli-albert">Stack Overflow</a> | <a href="http://www.bitbucket.org/elialbert">Bitbucket</a> | <a href="https://www.linkedin.com/pub/eli-albert/101/887/168">LinkedIn</a> | <a href="http://creaturefeaturecode.blogspot.com">Blogger</a> | <a href="http://www.twitter.com/elialbert">Twitter</a> | <a href="https://medium.com/@elialbert">Medium</a> | <a href="http://cavepainters.bandcamp.com/">Bandcamp</a> | <a href="https://www.facebook.com/lelicrumble">Facebook</a>
+          <a href="http://www.github.com/elialbert">Github</a> | <a href="http://stackoverflow.com/users/643721/eli-albert">Stack Overflow</a> | <a href="http://www.bitbucket.org/elialbert">Bitbucket</a> | <a href="https://www.linkedin.com/pub/eli-albert/101/887/168">LinkedIn</a> | <a href="http://creaturefeaturecode.blogspot.com">Blogger</a> | <a href="http://www.twitter.com/elialbert">Twitter</a> | <a href="https://medium.com/@elialbert">Medium</a> | <a href="http://cavepainters.bandcamp.com/">Bandcamp</a> | <a href="https://www.facebook.com/lelicrumble">Facebook</a> | <a id='hiddenEmail' href='#' onclick='showEmail()'>Gmail</a>
         </span>
       </div>
     </div>
@@ -96,12 +99,16 @@
   $.get('https://s3.amazonaws.com/qs-storage/qs-data.json?crossorigin=anonymous').then(
     function(x) {
       data = JSON.parse(x);
-      $('.background').css('background-color', data['comp1']);
-      $('.item').css('background-color', data['main']);
+      $('.background').css('background-color', data['main']);
+      $('.item').css('background-color', data['comp1']);
       $('.item').css('border', '2px solid ' + data['comp2']);
-      $('.item').css('color', data['bw']);      
+      $('.item').css('color', data['bw2']);
+      $('#subheader').css('color', data.bw);
     }
   );
+  var showEmail = function() {
+    $('#hiddenEmail').html('Gmail: elialbert');
+  };
 </script>
 
 </html>

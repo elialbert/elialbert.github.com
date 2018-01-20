@@ -106,5 +106,10 @@ a:hover {
     margin: 10px;
     width: 300px;
 }
+a#color-link {
+    background-color: #e8ecf2;
+    color: black;
+    font-size: 12px;
+}
 /*http://paletton.com/#uid=31D0u0kllll0B54aYddvIttZdLO*/
 /*http://paletton.com/#uid=3540z0kllllAAS1rBuwf4ca8O2+*/
