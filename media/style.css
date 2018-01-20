@@ -2,6 +2,9 @@ body {
     background-color: #940299;
 }
 @media (max-width: 600px) {
+    a#color-link {
+        line-height: 34px;
+    }
     #subheader {
 	font-size: 14px;
 	line-height: 14px;
