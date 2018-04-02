@@ -36,6 +36,10 @@
             <a target="_blank" class="nav-link" id='paid-tab' data-toggle='tab'
               href='#paid' role='tab' aria-controls='paid' aria-selected="false">Paid</a>
           </li>
+          <li class="nav-item">
+            <a target="_blank" class="nav-link" id='press-tab' data-toggle='tab'
+              href='#press' role='tab' aria-controls='press' aria-selected="false">Press</a>
+          </li>
         </ul>
       </div>
     </div>
@@ -201,6 +205,63 @@
         </div>
       </div>
     </div>
+
+    <div class="tab-pane fade" id="press" role="tabpanel" aria-labelledby="press-tab">
+      <div class='container'>
+        <div class="row">
+          <div class="col-12 col-md-4">
+            <div class="card">
+              
+              <div class="card-body">
+                <h5 class="card-title">Curbed Chicago</h5>
+                <p class="card-text">An article about my house.</p>
+                <a target="_blank" href="https://chicago.curbed.com/2016/8/15/12403082/logan-square-artists-commune-chicago-photos" class="btn btn-primary">View</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-12 col-md-4">
+            <div class="card">
+              <div class="card-body">
+                <h5 class="card-title">Chicago Reader</h5>
+                <p class="card-text">An article about an art space I helped create.</p>
+                <a target="_blank" href="https://www.chicagoreader.com/chicago/art-collective-commercial-loft-iris-iris-mural-underground/Content?oid=10804108" class="btn btn-primary">View</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-12 col-md-4">
+            <div class="card">
+              <div class="card-body">
+                <h5 class="card-title">Venture Beat</h5>
+                <p class="card-text">Quick piece about the first startup I worked for.</p>
+                <a target="_blank" href="https://venturebeat.com/2013/05/23/simplerelevance-raises-1m-for-tech-that-gives-emails-a-personal-touch/" class="btn btn-primary">View</a>
+              </div>
+            </div>
+          </div>
+          
+          <div class="col-12 col-md-4">
+            <div class="card">
+              <div class="card-body">
+                <h5 class="card-title">Average Bear Reviews</h5>
+                <p class="card-text">Random review of my old band's first album.</p>
+                <a target="_blank" href="https://averagebearreviews.wordpress.com/2013/12/25/cavepainters-for-the-sea-review/" class="btn btn-primary">Read</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-12 col-md-4">
+            <div class="card">
+              <div class="card-body">
+                <h5 class="card-title">DNA Info</h5>
+                <p class="card-text">Yet another article about my house.</p>
+                <a target="_blank" href="https://www.dnainfo.com/chicago/20170518/logan-square/rainbow-house-crumble-house-logan-square-central-park-avenue" class="btn btn-primary">Read</a>
+              </div>
+            </div>
+          </div>          
+        </div>
+      </div>
+    </div>
   </div>
   
   <script
@@ -224,6 +285,7 @@
       function(x) {
         var data = JSON.parse(x);
         $('.card').css('background-color', data.main);
+        $('.card').css('border-color', '#000');
         $('.nav-item .nav-link.active').css('background-color', data.comp1);
 
         $('.btn.btn-primary').css('background-color', data.comp1);
