@@ -9,6 +9,21 @@
   padding: 10px;
 }
 
-.eclink {
+.nav-item .nav-link.active {
+  background-color: var(--indigo);
+}
 
+.btn.btn-primary {
+  background-color: var(--indigo);
+  border-color: var(--indigo);
+}
+
+a {
+  color: var(--indigo);
+}
+
+.background {
+}
+.card {
+  margin-bottom: 20px;
 }

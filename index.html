@@ -4,14 +4,14 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-  <title>Eli Crumble</title>
+  <title>eli albert</title>
   
   <link href="media/newstyle.css" rel="stylesheet">
   <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
 
 </head>
 
-<body>
+<body class='background'>
   <div class='container padding-bottom padding-top'>
     <div class="row">
       <div class="col-2">
@@ -28,16 +28,16 @@
   <div class='container padding-bottom'>
     <ul class="nav nav-pills nav-justified" id='ecnav' role='tablist'>
       <li class="nav-item">
-        <a class="nav-link" id='profiles-tab' data-toggle='tab' 
+        <a target="_blank" class="nav-link" id='profiles-tab' data-toggle='tab' 
           href="#profiles" role='tab' aria-controls='profiles'
           aria-selected='false'>Profiles</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link active" id='projects-tab' data-toggle='tab'
+        <a target="_blank" class="nav-link active" id='projects-tab' data-toggle='tab'
           href='#projects' role='tab' aria-controls='projects' aria-selected="true">Projects</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" id='paid-tab' data-toggle='tab'
+        <a target="_blank" class="nav-link" id='paid-tab' data-toggle='tab'
           href='#paid' role='tab' aria-controls='paid' aria-selected="false">Paid</a>
       </li>
     </ul>
@@ -46,15 +46,15 @@
   <div class='tab-content' id='ecnavContent'>
     <div class="tab-pane fade" id="profiles" role="tabpanel" aria-labelledby="profiles-tab">
 
-      <div class='container padding-top'>
+      <div class='container'>
         <div class="row">
           <div class="col-12 col-md-4">
             <div class="card">
               <div class="card-body">
                 <h5 class="card-title">Professional</h5>
-                <p><a href="http://www.github.com/elialbert" class="card-link">Github</a></p>
-                <p><a href="http://stackoverflow.com/users/643721/eli-albert" class="card-link">Stack Overflow</a></p>
-                <p><a href="https://www.linkedin.com/pub/eli-albert/101/887/168" class="card-link">LinkedIn</a></p>
+                <p><a target="_blank" href="http://www.github.com/elialbert" class="card-link">Github</a></p>
+                <p><a target="_blank" href="http://stackoverflow.com/users/643721/eli-albert" class="card-link">Stack Overflow</a></p>
+                <p><a target="_blank" href="https://www.linkedin.com/pub/eli-albert/101/887/168" class="card-link">LinkedIn</a></p>
               </div>
             </div> 
           </div>
@@ -62,9 +62,12 @@
             <div class="card text-center">
               <div class="card-body">
                 <h5 class="card-title">Social</h5>
-                <p><a href="https://www.facebook.com/lelicrumble" class="card-link">Facebook</a></p>
+                <p><a target="_blank" href="https://www.facebook.com/lelicrumble" class="card-link">Facebook</a></p>
                 <p><a id='hiddenEmail' href='#' onclick='showEmail()' class="card-link">Gmail</a></p>
               </div>
+            </div>
+            <div class="card">
+              <img class="card-img-top" src="media/me_drawing.jpg" alt="me">
             </div>
           </div>
 
@@ -72,30 +75,52 @@
             <div class="card text-right">
               <div class="card-body">
                 <h5 class="card-title">Creative</h5>
-                <p><a href="http://www.twitter.com/elialbert" class="card-link">Twitter</a></p>
-                <p><a href="https://medium.com/@elialbert" class="card-link">Medium</a></p>
-                <p><a href="http://creaturefeaturecode.blogspot.com" class="card-link">Blogger</a></p>
-                <p><a href="http://cavepainters.bandcamp.com/" class="card-link">Bandcamp</a></p>
+                <p><a target="_blank" href="http://www.twitter.com/elialbert" class="card-link">Twitter</a></p>
+                <p><a target="_blank" href="https://medium.com/@elialbert" class="card-link">Medium</a></p>
+                <p><a target="_blank" href="http://creaturefeaturecode.blogspot.com" class="card-link">Blogger</a></p>
+                <p><a target="_blank" href="http://cavepainters.bandcamp.com/" class="card-link">Bandcamp</a></p>
               </div>
             </div>
           </div>
-        </div>
-      
+        </div>      
       </div>
-
-
     </div>
+
+
     <div class="tab-pane fade show active" id="projects" role="tabpanel" aria-labelledby="projects-tab">
       <div class='container'>
         <div class="row">
           <div class="col-12 col-md-4">
             <div class="card">
+              <img class="card-img-top" src="media/qsessay.png" alt="essay">
+              <div class="card-body">
+                <h5 class="card-title">QS and Color Schemes</h5>
+                <p class="card-text">An essay about how to use AWS Lambda and Google Spreadsheets to dynamically set website colors.</p>
+                <a target="_blank" href="https://medium.com/@elialbert/quantified-self-and-color-schemes-5bc1d78179cc" class="btn btn-primary">Read me</a>
+              </div>
+            </div>
+            <div class="card">
+              <img class="card-img-top" src="media/starchess3.jpg" alt="starchess">
+              <div class="card-body">
+                <h5 class="card-title">StarChess Online</h5>
+                <p class="card-text">Another cool game I made - a live multiplayer chess variant board game involving hexagons using rails + angular. Source is <a target="_blank" href="https://github.com/elialbert/starchess">here</a>.</p>
+                <a target="_blank" href="http://starchess.upchicago.org" class="btn btn-primary">Play</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-12 col-md-4">
+            <div class="card">
               <img class="card-img-top" src="media/banger2.jpg" alt="banger.fm">
               <div class="card-body">
                 <h5 class="card-title">bangerFM</h5>
-                <p class="card-text">Latest personal project: Live multiplayer beat production online. Somewhat a work in progress - check out the source <a href='https://github.com/elialbert/bangerFM'>here</a>.</p>
-                <a href="https://banger.fm" class="btn btn-primary">Play</a>
+                <p class="card-text">Latest personal project: Live multiplayer beat production online. Somewhat a work in progress - check out the source <a target="_blank" href='https://github.com/elialbert/bangerFM'>here</a>.</p>
+                <a target="_blank" href="https://banger.fm" class="btn btn-primary">Play</a>
               </div>
+            </div>
+
+            <div class="card">
+              <img class="card-img-top" src="media/me_bass.jpg" alt="me">
             </div>
           </div>
 
@@ -105,19 +130,8 @@
               <div class="card-body">
                 <h5 class="card-title">Fridge Magnets With Friends</h5>
                 <p class="card-text">Fairly new angular firebase project - a realtime multiplayer fridge magnet game!
-                  And <a href="https://github.com/elialbert/fridgemagnets">here's</a> the source.</p>
-                <a href="http://fridgemagnets.upchicago.org" class="btn btn-primary">Play</a>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-12 col-md-4">
-            <div class="card">
-              <img class="card-img-top" src="media/starchess3.jpg" alt="starchess">
-              <div class="card-body">
-                <h5 class="card-title">StarChess Online</h5>
-                <p class="card-text">Another cool game I made - a live multiplayer chess variant board game involving hexagons using rails + angular. Source is <a href="https://github.com/elialbert/starchess">here</a>.</p>
-                <a href="http://starchess.upchicago.org" class="btn btn-primary">Play</a>
+                  And <a target="_blank" href="https://github.com/elialbert/fridgemagnets">here's</a> the source.</p>
+                <a target="_blank" href="http://fridgemagnets.upchicago.org" class="btn btn-primary">Play</a>
               </div>
             </div>
           </div>
@@ -133,7 +147,7 @@
               <div class="card-body">
                 <h5 class="card-title">Provi</h5>
                 <p class="card-text">My current job - back in the startup world.</p>
-                <a href="https://provi.com" class="btn btn-primary">Check it out</a>
+                <a target="_blank" href="https://provi.com" class="btn btn-primary">Check it out</a>
               </div>
             </div>
           </div>
@@ -144,7 +158,7 @@
               <div class="card-body">
                 <h5 class="card-title">Enova</h5>
                 <p class="card-text">Last full time job: Lead software engineer.</p>
-                <a href="https://enova.com" class="btn btn-primary">Website</a>
+                <a target="_blank" href="https://enova.com" class="btn btn-primary">Website</a>
               </div>
             </div>
           </div>
@@ -153,7 +167,7 @@
             <div class="card">
               <div class="card-body">
                 <h5 class="card-title">SimpleRelevance</h5>
-                <p class="card-text">Previous full-time job, which I held for 4 years: <a href="http://www.simplerelevance.com">SimpleRelevance</a>. I was at different times CTO and Chief Architect, doing webdev / machine learning / algorithmic backend work.</p>
+                <p class="card-text">Previous full-time job, which I held for 4 years: <a target="_blank" href="http://www.simplerelevance.com">SimpleRelevance</a>. I was at different times CTO and Chief Architect, doing webdev / machine learning / algorithmic backend work.</p>
               </div>
             </div>
           </div>
@@ -162,7 +176,10 @@
     </div>
   </div>
   
-  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+  <script
+    src="http://code.jquery.com/jquery-3.3.1.min.js"
+    integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+    crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
   <script>
@@ -175,23 +192,18 @@
     ga('send', 'pageview');
 
   </script>
-
+  <script>
+    $.get('https://s3.amazonaws.com/qs-storage/qs-data.json?crossorigin=anonymous').then(
+      function(x) {
+        data = JSON.parse(x);
+        $('.card').css('background-color', data.main);
+      }
+    );
+    var showEmail = function() {
+      $('#hiddenEmail').html('Gmail: elialbert');
+    };
+  </script>
 </body>
-<!-- <script>
-  $.get('https://s3.amazonaws.com/qs-storage/qs-data.json?crossorigin=anonymous').then(
-    function(x) {
-      data = JSON.parse(x);
-      console.log(data)
-      $('.background').css('background-color', data['main']);
-      $('.item').css('background-color', data['comp1']);
-      $('.item').css('border', '2px solid ' + data['comp2']);
-      $('.item').css('color', data['bw2']);
-      $('#subheader').css('color', data.bw);
-    }
-  );
-  var showEmail = function() {
-    $('#hiddenEmail').html('Gmail: elialbert');
-  };
-</script> -->
+
 
 </html>
