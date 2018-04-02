@@ -1,8 +1,15 @@
 .padding-top {
-  padding-top: 20px;
+  padding-top: 30px;
 }
 .padding-bottom {
-  padding-bottom: 20px;
+  padding-bottom: 30px;
+}
+
+.padding-top-small {
+  padding-top: 10px;
+}
+.padding-bottom-small {
+  padding-bottom: 10px;
 }
 
 .padding-all {
@@ -25,5 +32,13 @@ a {
 .background {
 }
 .card {
-  margin-bottom: 20px;
+  margin-bottom: 30px;
+}
+.tab-content {
+  background-color: #efefef;
+}
+.echeader {
+  background-color: #efefef;
+  padding-top: 6px;
+  padding-bottom: 6px;
 }
