@@ -12,27 +12,14 @@
 </head>
 
 <body class='background'>
-  <!-- <div class='container padding-bottom padding-top'>
-    <div class="row">
-      <div class="col-2">
-      
-      </div>
-      <div class="col-md-4 col-6 text-center">
-       <h1>this me</h1>
-      </div>
-      <div class="col">
-      
-      </div>
-    </div>
-  </div> -->
   <div class='container padding-bottom-small padding-top-small'>
     <div class='row'>
-      <div class="col-3">
-      </div>
-      <div class='col-12 col-md-6 text-center'>
-        <h5 class='echeader'>@elialbert: coder tinker crooner spy.</h5>
-      </div>
-      <div class="col-3">
+      <div class='col-12 text-center'>
+        <h4 class='echeader'>
+          <div class='row no-gutters'>
+            <div class='col text-center'>@</div> <div class='col text-center'>e</div> <div class='col text-center'>l</div> <div class='col text-center'>i</div> <div class='col text-center'>a</div> <div class='col text-center'>l</div> <div class='col text-center'>b</div> <div class='col text-center'>e</div> <div class='col text-center'>r</div> <div class='col text-center'>t</div>
+          </div>
+        </h4>
       </div>
       <div class='col-12'>
         <ul class="nav nav-pills nav" id='ecnav' role='tablist'>
@@ -63,33 +50,52 @@
             <div class="card">
               <div class="card-body">
                 <h5 class="card-title">Professional</h5>
-                <p><a target="_blank" href="http://www.github.com/elialbert" class="card-link">Github</a></p>
-                <p><a target="_blank" href="http://stackoverflow.com/users/643721/eli-albert" class="card-link">Stack Overflow</a></p>
-                <p><a target="_blank" href="https://www.linkedin.com/pub/eli-albert/101/887/168" class="card-link">LinkedIn</a></p>
+                <div class='row no-gutters'>
+                  <div class='col-6'>
+                    <p><a target="_blank" href="http://www.github.com/elialbert" class="card-link">Github</a></p>
+                    <p><a target="_blank" href="http://stackoverflow.com/users/643721/eli-albert" class="card-link">Stack Overflow</a></p>
+                    <p><a target="_blank" href="https://www.linkedin.com/pub/eli-albert/101/887/168" class="card-link">LinkedIn</a></p>
+                  </div>                
+                  <div class='col-6'>
+                    <img src="media/github-logo.png" class="rounded img-fluid" alt="me">
+                  </div>
+                </div>             
               </div>
             </div> 
           </div>
           <div class="col-12 col-md-4">
-            <div class="card text-center">
+            <div class="card text-right">
               <div class="card-body">
                 <h5 class="card-title">Social</h5>
-                <p><a target="_blank" href="https://www.facebook.com/lelicrumble" class="card-link">Facebook</a></p>
-                <p><a id='hiddenEmail' href='#' onclick='showEmail()' class="card-link">Gmail</a></p>
+                <div class='row no-gutters'>
+                  <div class='col-6'>
+                    <img src="media/me_drawing.jpg" class="rounded img-fluid" alt="me">
+                  </div>
+
+                  <div class='col-6'>
+                    <p><a target="_blank" href="https://www.facebook.com/lelicrumble" class="card-link">Facebook</a></p>
+                    <p><a target="_blank" href="http://www.twitter.com/elialbert" class="card-link">Twitter</a></p>
+                    <p><a id='hiddenEmail' href='#' onclick='showEmail()' class="card-link">Gmail</a></p>
+                  </div>
+                </div>
               </div>
-            </div>
-            <div class="card">
-              <img class="card-img-top" src="media/me_drawing.jpg" alt="me">
             </div>
           </div>
 
           <div class="col-12 col-md-4">
-            <div class="card text-right">
+            <div class="card">
               <div class="card-body">
                 <h5 class="card-title">Creative</h5>
-                <p><a target="_blank" href="http://www.twitter.com/elialbert" class="card-link">Twitter</a></p>
-                <p><a target="_blank" href="https://medium.com/@elialbert" class="card-link">Medium</a></p>
-                <p><a target="_blank" href="http://creaturefeaturecode.blogspot.com" class="card-link">Blogger</a></p>
-                <p><a target="_blank" href="http://cavepainters.bandcamp.com/" class="card-link">Bandcamp</a></p>
+                <div class='row no-gutters'>
+                  <div class='col-6'>
+                    <p><a target="_blank" href="https://medium.com/@elialbert" class="card-link">Medium</a></p>
+                    <p><a target="_blank" href="http://creaturefeaturecode.blogspot.com" class="card-link">Blogger</a></p>
+                    <p><a target="_blank" href="http://cavepainters.bandcamp.com/" class="card-link">Bandcamp</a></p>
+                  </div>
+                  <div class='col-6'>
+                    <img src="media/leli.jpg" class="rounded img-fluid" alt="me">
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -125,7 +131,7 @@
               <img class="card-img-top" src="media/banger2.jpg" alt="banger.fm">
               <div class="card-body">
                 <h5 class="card-title">bangerFM</h5>
-                <p class="card-text">Latest personal project: Live multiplayer beat production online. Somewhat a work in progress - check out the source <a target="_blank" href='https://github.com/elialbert/bangerFM'>here</a>.</p>
+                <p class="card-text">Latest personal project: Live multiplayer beat production online. Doesn't work on mobile yet, unfortunately. Check out the source <a target="_blank" href='https://github.com/elialbert/bangerFM'>here</a>.</p>
                 <a target="_blank" href="https://banger.fm" class="btn btn-primary">Play</a>
               </div>
             </div>
@@ -223,7 +229,7 @@
         $('.btn.btn-primary').css('background-color', data.comp1);
         $('.btn.btn-primary').css('border-color', data.comp1);
         $('a').css('color', data.comp1);
-        $('.echeader').css('background-color', data.main);
+        // $('.echeader').css('background-color', data.main);
         $('a.btn.btn-primary').css('color', '#fff');
         $('.nav-item a.nav-link.active').css('color', "#fff");
 

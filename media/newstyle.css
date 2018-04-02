@@ -38,7 +38,9 @@ a {
   background-color: #efefef;
 }
 .echeader {
-  background-color: #efefef;
+  /*background-color: #efefef;*/
   padding-top: 6px;
   padding-bottom: 6px;
+  text-align: justify;
+  
 }
