@@ -103,7 +103,13 @@
               </div>
             </div>
           </div>
-        </div>      
+        </div>   
+        <div class="row">
+          <div class="col-12">
+            <div class='padding-bottom margin-bottom padding-top margin-top twitter-quote text-center font-weight-bold font-italic'>
+            </div>
+          </div>
+        </div>   
       </div>
     </div>
 
@@ -313,6 +319,9 @@
           $(e.target).css('background-color', '#fff');
           $(e.target).css('color', data.comp1);
         });
+        if (data.twitter) {
+          $('.twitter-quote').text(data.twitter);
+        }
       }
     );
     var showEmail = function() {
