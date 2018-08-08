@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-  <title>eli albert</title>
+  <title>Eli Albert</title>
   
   <link href="media/newstyle.css" rel="stylesheet">
   <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
@@ -22,7 +22,7 @@
         </h4>
       </div>
       <div class='col-12'>
-        <ul class="nav nav-pills nav" id='ecnav' role='tablist'>
+        <ul class="nav nav-pills" id='ecnav' role='tablist'>
           <li class="nav-item">
             <a target="_blank" class="nav-link" id='profiles-tab' data-toggle='tab' 
               href="#profiles" role='tab' aria-controls='profiles'
@@ -68,18 +68,17 @@
             </div> 
           </div>
           <div class="col-12 col-md-4">
-            <div class="card text-right">
+            <div class="card">
               <div class="card-body">
                 <h5 class="card-title">Social</h5>
                 <div class='row no-gutters'>
                   <div class='col-6'>
-                    <img src="media/me_drawing.jpg" class="rounded img-fluid" alt="me">
-                  </div>
-
-                  <div class='col-6'>
                     <p><a target="_blank" href="https://www.facebook.com/lelicrumble" class="card-link">Facebook</a></p>
                     <p><a target="_blank" href="http://www.twitter.com/elialbert" class="card-link">Twitter</a></p>
                     <p><a id='hiddenEmail' href='#' onclick='showEmail()' class="card-link">Gmail</a></p>
+                  </div>
+                  <div class='col-6'>
+                    <img src="media/me_drawing.jpg" class="rounded img-fluid" alt="me">
                   </div>
                 </div>
               </div>
@@ -180,7 +179,7 @@
         <div class="row">
           <div class="col-12 col-md-4">
             <div class="card">
-              <img class="card-img-top padding-all" src="media/provi.png" alt="provi">
+              <img class="card-img-top" src="media/provi.png" alt="provi" style='padding: 14px;'>
               <div class="card-body">
                 <h5 class="card-title">Provi</h5>
                 <p class="card-text">My current job - back in the startup world.</p>
@@ -191,10 +190,10 @@
 
           <div class="col-12 col-md-4">
             <div class="card">
-              <img class="card-img-top" src="media/Enova-logo.jpg" alt="enova">
+              <img class="card-img-top" src="media/enova_color.png" alt="enova">
               <div class="card-body">
                 <h5 class="card-title">Enova</h5>
-                <p class="card-text">Last full time job: Lead software engineer.</p>
+                <p class="card-text">Last full time job: Lead software engineer. I worked on modernizing core legacy systems for a product that pushed millions of dollars around all day long.</p>
                 <a target="_blank" href="https://enova.com" class="btn btn-primary">Website</a>
               </div>
             </div>
@@ -202,6 +201,7 @@
 
           <div class="col-12 col-md-4">
             <div class="card">
+              <img class="card-img-top" src="media/srlogo.png" alt="simplerelevance" style='padding: 4px; padding-top: 12px;'>
               <div class="card-body">
                 <h5 class="card-title">SimpleRelevance</h5>
                 <p class="card-text">Previous full-time job, which I held for 4 years: <a target="_blank" href="http://www.simplerelevance.com">SimpleRelevance</a>. I was at different times CTO and Chief Architect, doing webdev / machine learning / algorithmic backend work.</p>
@@ -220,7 +220,7 @@
               
               <div class="card-body">
                 <h5 class="card-title">Curbed Chicago</h5>
-                <p class="card-text">An article about my house.</p>
+                <p class="card-text">An article about my technicolor dream house.</p>
                 <a target="_blank" href="https://chicago.curbed.com/2016/8/15/12403082/logan-square-artists-commune-chicago-photos" class="btn btn-primary">View</a>
               </div>
             </div>
@@ -303,22 +303,31 @@
         console.log(data)
         $('.card').css('background-color', '#' + data.main);
         $('.card').css('border-color', '#000');
-        $('.nav-item .nav-link.active').css('background-color', '#' + data.comp1);
+        // $('.nav-item .nav-link.active').css('background-color', '#' + data.comp1);
+        // $('.nav-item a.nav-link.active').css('color', "#fff");
+        $('.nav-item .nav-link.active').css('background-color', '#FFF');
+        $('.nav-item .nav-link.active').css('text-decoration', 'underline');
+        $('.nav-item .nav-link.active').css('font-weight', '900');
+        $('.nav-item a.nav-link.active').css('color', '#' + data.main);
 
         $('.btn.btn-primary').css('background-color', '#' + data.comp1);
         $('.btn.btn-primary').css('border-color', '#' + data.comp1);
         $('a').css('color', '#' + data.comp1);
         // $('.echeader').css('background-color', data.main);
         $('a.btn.btn-primary').css('color', '#fff');
-        $('.nav-item a.nav-link.active').css('color', "#fff");
+        
 
         $('a[data-toggle="tab"]').on('show.bs.tab', function(e) {
-          $(e.target).css('background-color', '#' + data.comp1);
-          $(e.target).css('color', "#fff");
+          $(e.target).css('background-color', '#' + 'fff');
+          $(e.target).css('color', '#' + data.comp1);
+          $(e.target).css('text-decoration', 'underline');
+          $(e.target).css('font-weight', '900');
         });
         $('a[data-toggle="tab"]').on('hide.bs.tab', function(e) {
           $(e.target).css('background-color', '#fff');
           $(e.target).css('color', '#' + data.comp1);
+          $(e.target).css('text-decoration', 'none');
+          $(e.target).css('font-weight', 'normal');
         });
         if (data.twitter) {
           $('.twitter-quote').text(data.twitter);

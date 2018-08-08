@@ -50,3 +50,7 @@ a {
   padding-bottom: 0.5rem;
   padding-left: 0.75rem;
 }
+li.nav-item {
+    width: 90px;
+    text-align: center;
+}
