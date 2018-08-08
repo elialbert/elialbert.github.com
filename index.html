@@ -307,7 +307,7 @@
         // $('.nav-item a.nav-link.active').css('color', "#fff");
         $('.nav-item .nav-link.active').css('background-color', '#FFF');
         $('.nav-item .nav-link.active').css('text-decoration', 'underline');
-        $('.nav-item .nav-link.active').css('font-weight', '900');
+        // $('.nav-item .nav-link.active').css('font-weight', '900');
         $('.nav-item a.nav-link.active').css('color', '#' + data.main);
 
         $('.btn.btn-primary').css('background-color', '#' + data.comp1);
@@ -321,13 +321,13 @@
           $(e.target).css('background-color', '#' + 'fff');
           $(e.target).css('color', '#' + data.comp1);
           $(e.target).css('text-decoration', 'underline');
-          $(e.target).css('font-weight', '900');
+          // $(e.target).css('font-weight', '900');
         });
         $('a[data-toggle="tab"]').on('hide.bs.tab', function(e) {
           $(e.target).css('background-color', '#fff');
           $(e.target).css('color', '#' + data.comp1);
           $(e.target).css('text-decoration', 'none');
-          $(e.target).css('font-weight', 'normal');
+          // $(e.target).css('font-weight', 'normal');
         });
         if (data.twitter) {
           $('.twitter-quote').text(data.twitter);
