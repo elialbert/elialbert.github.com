@@ -5,6 +5,7 @@ author: eli
 categories: [ aws, tech ]
 image: assets/images/qs9.jpg
 featured: true
+hidden: true
 ---
 
 A little toy project: the colors on my website now change every day according to the amount of exercise and meditation I got the day before. Here’s a tutorial.
