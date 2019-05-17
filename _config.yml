@@ -1,0 +1,59 @@
+# Site
+name: "crumbleblog"
+title: "crumbleblog"
+description: "miscellania from the desk of eli albert"
+logo: 'favicon.ico'
+favicon: 'favicon.ico'
+google_analytics: 'UA-61651137-1'
+include: ["_pages"]
+permalink: /blog/:title/
+
+authors:
+  eli:
+    name: Eli
+    display_name: Eli Albert
+    gravatar: 22ac9ce7141685dcb4eeab6e81da8a62
+    email: elialbert@gmail.com
+    web: https://elialbert.com
+    twitter: https://twitter.com/elialbert
+    description: ""
+
+# Plugins
+plugins:
+  - jekyll-paginate
+  - jekyll-sitemap
+  - jekyll-feed
+  - jekyll-seo-tag
+  - jekyll-archives
+    
+# Archives
+jekyll-archives:
+  enabled:
+    - categories
+  layout: archive
+  permalinks:
+    category: '/blog/category/:name/'
+    
+# Pagination 
+paginate: 6
+paginate_path: /blog/page:num/
+    
+# Other
+markdown: kramdown
+
+kramdown:
+  input: GFM
+  syntax_highlighter: rouge
+  syntax_highlighter_opts:
+    block:
+      line_numbers: true
+
+# Adsense (change to "enabled" to activate, also your client id and ad slot. Create a new ad unit from your Adsense account to get the slot.)
+adsense: "disabled"
+adsense-data-ad-client: "ca-pub-3412143450191416"
+adsense-data-ad-slot: "1363087678"
+
+# Lazy Images ("enabled" or "disabled")
+lazyimages: "disabled"
+
+exclude: [changelog.md, LICENSE.txt, README.md, Gemfile, Gemfile.lock]
