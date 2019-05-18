@@ -43,14 +43,15 @@ ga('send', 'pageview');
 
 <!-- Begin Menu Navigation
 ================================================== -->
-<nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top mediumnavigation nav-down">
+<nav class="navbar navbar-expand-lg navbar-light fixed-top mediumnavigation nav-down">
 
     <div class="container pr-0">
 
     <!-- Begin Logo -->
     <a class="navbar-brand" href="{{ site.baseurl }}/">
-    <img src="{{ site.baseurl }}/{{ site.logo }}" alt="{{ site.name }}">
+        <img src="{{ site.baseurl }}/{{ site.logo }}" alt="{{ site.name }}">
     </a>
+    {{ site.description }}
     <!-- End Logo -->
 
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarMediumish" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -98,8 +99,8 @@ ga('send', 'pageview');
 ================================================== -->
 <div class="mainheading">
     <h1 class="sitetitle">{{ site.name }}</h1>
-    <p class="lead">
-        {{ site.description }}
+    <p class="lead twitter-quote">
+        
     </p>
 </div>
 
@@ -182,6 +183,19 @@ ga('send', 'pageview');
 {% endif %}
 
 <script src="{{ site.baseurl }}/assets/js/ie10-viewport-bug-workaround.js"></script> 
-
+<script>
+  $.get('https://s3.amazonaws.com/qs-storage/qs-data.json?crossorigin=anonymous').then(
+    function(x) {
+      var data = JSON.parse(x);
+      console.log(data)
+      $('.navbar').css('background-color', '#' + data.main);
+      $('.card').css('border', '1px solid #' + data.comp1);
+      if (data.twitter) {
+        $('.twitter-quote').text(data.twitter);
+      }
+    }
+  );
+  
+</script>
 </body>
 </html>
