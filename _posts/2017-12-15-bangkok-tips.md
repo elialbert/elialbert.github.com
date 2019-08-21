@@ -5,6 +5,7 @@ author: eli
 categories: [ travel ]
 image: assets/images/bangkok1.jpg
 featured: true
+hidden: true
 ---
 
 info I wish I would have found on some website somewhere else
