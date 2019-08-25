@@ -4,8 +4,8 @@ title:  "Bangkok tips & tricks"
 author: eli
 categories: [ travel ]
 image: assets/images/bangkok1.jpg
-featured: true
-hidden: true
+featured: false
+hidden: false
 ---
 
 info I wish I would have found on some website somewhere else
