@@ -5,12 +5,11 @@ author: eli
 categories: [ tattoos, pain, meditation, essays ]
 featured: true
 hidden: true
+image: assets/images/tattoo1.jpg
 excerpt: A short essay on pain and its causes, through the lens of a new tattoo.
 ---
 
 Last night I got a new tattoo on the back of my calf and thigh, as well as, crucially, a big chunk on the back of the knee. The experience drove home, in a physical way, a point that I've been learning over and over again recently - that the only way past pain is through it.
-
-![]({{site.baseurl}}/assets/images/tattoo1.jpg)*the new tattoo*
 
 The thing about the back of the knee is that it's a very delicate area. The pain from a heavy amount of ink there feels like two extremely strong and unpleasant pains at once - one of a normal tattoo gun, and another of much deeper nerve pain. Everything in your brain is screaming at you to make it stop, even while you're promising yourself that everything is OK, and that this is what you've chosen to do.
 
