@@ -4,12 +4,10 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha256-YLGeXaapI0/5IgZopewRJcFXomhRMlYYjugPLSyNjTY=" crossorigin="anonymous" />
-  <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"> -->
   <title>Eli Albert</title>
   
   <link href="media/newstyle.css" rel="stylesheet">
   <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
-
 </head>
 
 <body class='background'>
@@ -42,9 +40,13 @@
               href='#press' role='tab' aria-controls='press' aria-selected="false">Press</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" id='patterns-tab'
-              href='https://elialbert.com/blog/'>Patterns</a>
+            <a target="_blank" class="nav-link" id='print-tab'
+              href='https://elialbert.com/blog/'>Print</a>
           </li>
+          <!-- <li class="nav-item d-none d-sm-block">
+            <a class="nav-link" id='patterns-tab' data-toggle='tab'
+              href='#patterns' role='tab' aria-controls='press' aria-selected="false">Patterns</a>
+          </li> -->
         </ul>
       </div>
     </div>
@@ -52,7 +54,6 @@
 
   <div class='tab-content padding-top' id='ecnavContent'>
     <div class="tab-pane fade" id="profiles" role="tabpanel" aria-labelledby="profiles-tab">
-
       <div class='container'>
         <div class="row">
           <div class="col-12 col-md-4">
@@ -121,6 +122,7 @@
 
 
     <div class="tab-pane fade show active" id="projects" role="tabpanel" aria-labelledby="projects-tab">
+      <div id='charttest'></div>
       <div class='container'>
         <div class="row">
           <div class="col-12 col-md-4">
@@ -215,6 +217,14 @@
               </div>
             </div>
           </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="tab-pane fade" id="patterns" role="tabpanel" aria-labelledby="patterns-tab">
+      <div class='container'>
+        <div class="row">
+          
         </div>
       </div>
     </div>
@@ -339,6 +349,7 @@
         if (data.twitter) {
           $('.twitter-quote').text(data.twitter);
         }
+        
       }
     );
     var showEmail = function() {
