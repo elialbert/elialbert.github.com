@@ -55,3 +55,22 @@ a {
     width: unset;
     width:;
 }*/
+
+.under-content {
+  position: absolute;
+  height: 120px;
+  background-color: #efefef;
+  width: 100%;
+}
+
+.ct-series-a .ct-line {
+  stroke: black;
+}
+
+.ct-series-b .ct-line {
+  stroke: white;
+}
+
+.ct-series-c .ct-line {
+  stroke: gray;
+}

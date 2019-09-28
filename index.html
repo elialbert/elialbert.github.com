@@ -4,6 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha256-YLGeXaapI0/5IgZopewRJcFXomhRMlYYjugPLSyNjTY=" crossorigin="anonymous" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/chartist/0.11.4/chartist.min.css" integrity="sha256-seGyqLj5T52Hx8W7/YTajtNXGXQf+IksfkcaKGoTkbY=" crossorigin="anonymous" />
   <title>Eli Albert</title>
   
   <link href="media/newstyle.css" rel="stylesheet">
@@ -43,10 +44,6 @@
             <a target="_blank" class="nav-link" id='print-tab'
               href='https://elialbert.com/blog/'>Print</a>
           </li>
-          <!-- <li class="nav-item d-none d-sm-block">
-            <a class="nav-link" id='patterns-tab' data-toggle='tab'
-              href='#patterns' role='tab' aria-controls='press' aria-selected="false">Patterns</a>
-          </li> -->
         </ul>
       </div>
     </div>
@@ -296,6 +293,10 @@
       </div>
     </div>
   </div>
+
+  <div class='under-content'>
+
+  </div>
   
   <script
     src="https://code.jquery.com/jquery-3.3.1.min.js"
@@ -303,6 +304,7 @@
     crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/chartist/0.11.4/chartist.min.js" integrity="sha256-xNhpuwaNiVdna6L8Wy3GNuQz1z+SCmo4NY1c7cJ9Vdc=" crossorigin="anonymous"></script>
   <script>
     (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
     (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -349,7 +351,39 @@
         if (data.twitter) {
           $('.twitter-quote').text(data.twitter);
         }
-        
+        if (data.data) {
+          $('.under-content').css('background-color', '#' + data.main);
+          $('.under-content').css('border', '1px solid black');
+
+          new Chartist.Line('.under-content', {
+            labels: ['ex', 'med', 'f'],
+            series: [
+              data.data.ex, data.data.med, data.data.f
+            ]
+          }, {
+            fullWidth: true,
+            high: 10,
+            low: 0,
+            showArea: false,
+            showLine: true,
+            showPoint: false,
+
+            chartPadding: {
+              top: 20,
+              left: -15,
+              right: 15,
+              bottom: 0
+            },
+            axisY: {
+              showLabel: false,
+              showGrid: false
+            },
+            axisX: {
+              showLabel: false,
+              showGrid: false
+            }
+          });
+        }
       }
     );
     var showEmail = function() {
