@@ -132,11 +132,12 @@
               </div>
             </div>
             <div class="card">
-              <img class="card-img-top" src="media/starchess3.jpg" alt="starchess">
+              <img class="card-img-top" src="media/me_bass.jpg" alt="walking-bass">
               <div class="card-body">
-                <h5 class="card-title">StarChess Online</h5>
-                <p class="card-text">Another cool game I made - a live multiplayer chess variant board game involving hexagons using rails + angular. Source is <a target="_blank" href="https://github.com/elialbert/starchess">here</a>.</p>
-                <a target="_blank" href="https://starchess.elialbert.com" class="btn btn-primary">Play</a>
+                <h5 class="card-title">Infinite Walking Bass</h5>
+                <p class="card-text">I spent a couple hours coding up a js toy that just plays a walking bass forever. Some day I plan to add some sliders to control various aspects of it.
+                  And <a target="_blank" href="https://github.com/elialbert/infinitewalkingbass">here's</a> the source.</p>
+                <a target="_blank" href="https://bass.elialbert.com" class="btn btn-primary">Check it out</a>
               </div>
             </div>
           </div>
@@ -150,9 +151,13 @@
                 <a target="_blank" href="https://bloop.elialbert.com" class="btn btn-primary">Play</a>
               </div>
             </div>
-
             <div class="card">
-              <img class="card-img-top" src="media/me_bass.jpg" alt="me">
+              <img class="card-img-top" src="media/starchess3.jpg" alt="starchess">
+              <div class="card-body">
+                <h5 class="card-title">StarChess Online</h5>
+                <p class="card-text">Another cool game I made - a live multiplayer chess variant board game involving hexagons using rails + angular. Source is <a target="_blank" href="https://github.com/elialbert/starchess">here</a>.</p>
+                <a target="_blank" href="https://starchess.elialbert.com" class="btn btn-primary">Play</a>
+              </div>
             </div>
           </div>
 
@@ -319,7 +324,7 @@
     $.get('https://s3.amazonaws.com/qs-storage/qs-data.json?crossorigin=anonymous').then(
       function(x) {
         var data = JSON.parse(x);
-        console.log(data)
+        // console.log(data)
         $('.card').css('background-color', '#' + data.main);
         $('.card').css('border-color', '#000');
         // $('.nav-item .nav-link.active').css('background-color', '#' + data.comp1);
