@@ -26,23 +26,23 @@ With that out of the way, we arrive at a more specific statement, one which I ho
 ![]({{site.baseurl}}/assets/images/cheesy2.jpg)
 
 **Romcoms**  
-I have a plan for the rest of the series, although I haven't yet written any of the pieces. I'll start by bringing up a few specific culture touchpoints in order to help cement our shared understanding of the terms above. We can call this essay "Why Garden State (2004) is a Bad Movie".  
-Homework: watch _Garden State_ and _When Harry Met Sally_.
+I have a plan for the rest of the series, although I haven't yet written any of the pieces. I'll start by bringing up a few specific cultural touchpoints in order to help cement our shared understanding of the terms above. I'll define some terms a little more clearly and make a point or two about what why the question of art is important in the first place. We can call this essay "Garden State (2004) is a Bad Movie".  
+Homework: watch _Garden State_ and _When Harry Met Sally_. Read [this recent Chabon essay](https://www.theparisreview.org/blog/2019/09/23/whats-the-point/).
+
+**Music**  
+After that I want to do a deep dive into music, and specifically, Cumbia and Reggaeton. I'm curious about the difference between their beats and why it affects my experience of the music so deeply. I'll use this exploration to talk about tradition in culture, how art evolves with the times, and where cheesiness goes rancid. Maybe we'll title this one "Cumbia vs Reggaeton - how one drumbeat can change everything." Hopefully I'll be able to embed some youtube videos in here and make this a multimedia adventure.  
+Homework: listen to your favorite music with an ear to its roots.
 
 **Philosophy**  
-Then I'll zoom back a bit and talk about Guy Debord's *Society of the Spectacle*, which I'll probably get completely wrong but this is a series of personal blog posts anyway so what can you do. Some of the ideas in the contemporary interpretation of Debord's philosophies pretty directly influence my thesis statement above (about bridging the past and the future while defying the present), so hopefully this will help more than it'll confuse. We'll call it "Stupid Internet".  
+Then I'll zoom back a bit and talk about Guy Debord's *Society of the Spectacle*, which I'll probably get completely wrong but this is a series of personal blog posts anyway so what can you do. Some of the ideas in the contemporary interpretation of Debord's philosophies pretty directly influence my thesis statement above, so hopefully this will help more than it'll confuse. We'll call it "Stupid Internet", and if all goes as planned this essay will do the heavy lifting in supporting my main point about bridging the past and the future while defying the present.  
 Homework: read [Society of the Spectacle](https://www.marxists.org/reference/archive/debord/society.htm) and Walter Benjamin's [The Work of Art in the Age of Mechanical Reproduction](https://www.marxists.org/reference/subject/philosophy/works/ge/benjamin.htm)
 
 ![]({{site.baseurl}}/assets/images/cheesy3.jpg)
 
-**Music**  
-After that I want to do a deep dive into music, and specifically, Cumbia and Reggaeton. I'm curious about the difference between their beats and why it affects my experience of the music so deeply. I'll use this exploration to talk about tradition in culture, and where cheesiness goes rancid. Maybe we'll title this one "Cumbia vs Reggaeton - how one drumbeat can change everything." Hopefully I'll be able to embed some youtube videos in here and make this a multimedia adventure.  
-Homework: listen to your favorite music with an ear to its roots.
-
 **Dad Jokes**  
-Then I'm planning to get deep into dad jokes. I'm not (yet) a dad but I do love the kind of humor that we attribute to dads, and I only plan to increase the frequency of my dad jokes as I get older. What makes cheesiness enjoyable sometimes? Can dad jokes be revolutionary? Actually let's just give this essay "Can Dad Jokes be Revolutionary?" as a working title. A good dad joke knows its audience and pokes fun at itself, and I think those two things, while seemingly trivial in this context, go a long way towards accomplishing our goals.  
+Then we can conclude by getting deep into dad jokes. I'm not (yet) a dad but I do love the kind of humor that we attribute to dads, and I only plan to increase the frequency of my dad jokes as I get older. What makes cheesiness enjoyable sometimes? Can dad jokes be revolutionary? Actually let's just give this essay "Can Dad Jokes be Revolutionary?" as a working title. A good dad joke knows its audience and pokes fun at itself, and I think those two things, while seemingly trivial in this context, go a long way towards accomplishing our goals.  
 Homework: ask your dad or a father figure what dad jokes mean to them.
 
 That's all I've planned so far; we'll have to see how close we stick to the plan. For now I'll just sign off,  
-With irony and optimism,  
+with irony and optimism,  
 Eli.
