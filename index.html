@@ -325,6 +325,9 @@
       function(x) {
         var data = JSON.parse(x);
         // console.log(data)
+        if (!data || !data.main) {
+          return;
+        }
         $('.card').css('background-color', '#' + data.main);
         $('.card').css('border-color', '#000');
         // $('.nav-item .nav-link.active').css('background-color', '#' + data.comp1);
