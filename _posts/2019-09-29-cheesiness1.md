@@ -26,8 +26,8 @@ With that out of the way, we arrive at a more specific statement, one which I ho
 ![]({{site.baseurl}}/assets/images/cheesy2.jpg)
 
 **Romcoms**  
-I have a plan for the rest of the series. I'll start by bringing up a few specific cultural touchpoints in order to help cement our shared understanding of the terms above. I'll define some terms a little more clearly and make a point or two about what why the question of art is important in the first place. We can call this essay "Garden State (2004) is a Bad Movie".  
-Homework: watch _Garden State_ and _When Harry Met Sally_. Read [this recent Chabon essay](https://www.theparisreview.org/blog/2019/09/23/whats-the-point/).
+I have a plan for the rest of the series, I'll start by bringing up a few specific cultural touchpoints in order to help cement our shared understanding of the terms above. I'll define some terms a little more clearly and make a point or two about what why the question of art is important in the first place. We can call this essay "Garden State (2004) is a Bad Movie".  
+Homework: watch _Garden State_ and read [this recent Chabon essay](https://www.theparisreview.org/blog/2019/09/23/whats-the-point/).
 
 And now you can click [here]({{site.baseurl}}/blog/cheesiness2/) for part 1.
 
