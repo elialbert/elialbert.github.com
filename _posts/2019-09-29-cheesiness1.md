@@ -32,7 +32,7 @@ Homework: watch _Garden State_ and read [this recent Chabon essay](https://www.t
 And now you can click [here]({{site.baseurl}}/blog/cheesiness2/) for part 1.
 
 **Music**  
-After that I want to do a deep dive into music, and specifically, Cumbia and Reggaeton. I'm curious about the difference between their beats and why it affects my experience of the music so deeply. I'll use this exploration to talk about tradition in culture, how art evolves with the times, and where cheesiness goes rancid. Maybe we'll title this one "Cumbia vs Reggaeton - how one drumbeat can change everything." Hopefully I'll be able to embed some youtube videos in here and make this a multimedia adventure.  
+After that I want to do a deep dive into music, and specifically, Cumbia and Reggaeton. I'm curious about the difference between their beats and why it affects my experience of the music so deeply. I'll use this exploration to talk about tradition in culture, how art evolves with the times, and where cheesiness goes rancid. Maybe we'll title this one "Cumbia vs Reggaeton - how one drumbeat can change everything" (Narrator - "He didn't"). Hopefully I'll be able to embed some youtube videos in here and make this a multimedia adventure.  
 Homework: listen to your favorite music with an ear to its roots.
 
 **Philosophy**  
