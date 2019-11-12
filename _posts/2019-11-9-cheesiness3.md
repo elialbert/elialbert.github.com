@@ -39,7 +39,7 @@ Here is Totó la Momposina, a famous artist who has been keeping traditional Col
 To me these layers of complexity are what makes the music interesting. The different rhythms interact in ways that capture my attention and imagination. And, like the quote above mentions, the double beat pushes me towards the end of the song, maybe sort of like a fast-paced plot in a movie.
 
 **The blues**  
-Historically speaking, we probably have the influences of African slaves to thank for this musical moment. According to the article linked above as well as other pieces I've been reading while researching this, it was the combination of African and South American culture that led to the complex situation above. Does that story sound familiar to you? If you live in the US it probably should, since that's exactly [what happened here](https://www.allaboutjazz.com/a-brief-history-of-the-blues-by-ed-kopp.php) with the blues.
+Historically speaking, we probably have the influences of African slaves to thank for Cumbia's beat. According to the article linked above as well as other pieces I've been reading while researching this, it was the combination of African and South American culture that led to the complex situation above. Does that story sound familiar to you? If you live in the US it probably should, since that's exactly [what happened here](https://www.allaboutjazz.com/a-brief-history-of-the-blues-by-ed-kopp.php) with the blues.
 
 `It's generally accepted that the music evolved from African spirituals, African chants, work songs, field hollers, rural fife and drum music, revivalist hymns, and country dance music.`
 
