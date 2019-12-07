@@ -6,8 +6,11 @@ categories: [ art, cheesiness, essays, internet ]
 featured: false
 hidden: false
 image: assets/images/anarchosticker2.png
+iii: true
 excerpt: Part 3 in an essay series about art
 ---
+
+![]({{site.baseurl}}/assets/images/anarchosticker.jpg)
 
 **Symptoms**
 

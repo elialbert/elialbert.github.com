@@ -6,8 +6,11 @@ categories: [ art, debord, cheesiness, essays ]
 featured: true
 hidden: false
 image: assets/images/cheesyintro.png
+iii: true
 excerpt: The introduction to a new series of writings about cheesiness and communication
 ---
+
+![]({{site.baseurl}}/assets/images/cheesy1.jpg)
 
 I'm curious why some communication gets branded "cheesy" or "clichéd". I plan to embark on a short series of essays exploring art and communication. Since I recognize the mammoth nature of this plan, I'll try to restrict myself to this purpose:
 
