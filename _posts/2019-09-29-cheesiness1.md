@@ -3,9 +3,9 @@ layout: post
 title:  "Revolutionary Art"
 author: eli
 categories: [ art, debord, cheesiness, essays ]
-featured: false
+featured: true
 hidden: false
-image: assets/images/cheesy1.jpg
+image: assets/images/cheesyintro.png
 excerpt: The introduction to a new series of writings about cheesiness and communication
 ---
 

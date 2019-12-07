@@ -4,8 +4,8 @@ title:  "On Meditation"
 author: eli
 categories: [ meditation, life, essays ]
 image: assets/images/meditation.jpg
-featured: true
-hidden: true
+featured: false
+hidden: false
 excerpt: Wherein I, Eli, humbly beg you, the reader, to start a meditation practice.
 ---
 
