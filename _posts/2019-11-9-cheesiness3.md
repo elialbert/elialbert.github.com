@@ -69,6 +69,11 @@ Here's Elvis, that famous thief of African and African American music. This song
 
 By changing the music in this way, we neuter it - we specifically take out the unique elements that remind us of our hemisphere's African slave trading history, the elements that carry the earlier musical tradition. Yes, it reminds us all of something horrible, but it's also a unique and beautiful form of music, and something we could learn from. Contemporary evolutions to art have had the effect of denying the traditional influence. Even worse, of denying it while simultaneously benefiting from its former presence. Because there is a huge benefit here - by stealing pieces of the past we make entertainment interesting, which is necessary if we want to sell anything, and by ignoring the sadness in our history we make entertainment more palatable, which means we sell more. Somewhere in the last century we swapped depth for spectacle.
 
-In [the Garden State essay](https://elialbert.com/blog/cheesiness2) I concluded that cheesy is what happens when you deny the darkness around you, which seems to yet again be the case. Here we can add that from a commercial perspective:
+In [the Garden State essay]({{site.baseurl}}/blog/cheesiness2/) I concluded that cheesy is what happens when you deny the darkness around you, which seems to yet again be the case. Here we can add that from a commercial perspective:
 
 *Cheesy is what happens when you deny your traditional roots in order to make something more mass marketable.*  
+
+Thanks for sticking with it. Feel free to read [Part 3]({{site.baseurl}}/blog/cheesiness4/) of this series, which is concerned more directly with how to avoid the pitfalls of the modern entertainment industry while still being entertaining.  
+
+Through thick and thin,
+Eli

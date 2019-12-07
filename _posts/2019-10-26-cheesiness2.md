@@ -63,6 +63,6 @@ In that world, a world where the movie stands up to its deep and quirky ideals, 
 
 ---
 
-Thanks for sticking with me through part 1 - part 2, coming out some time before 2020, will be a multimedia exploration of cheesiness in music. [Here again](https://elialbert.com/blog/cheesiness1) is the link to the intro piece outlining my full plan.  
+Thanks for sticking with me through part 1 - [part 2]({{site.baseurl}}/blog/cheesiness3/) is a multimedia exploration of cheesiness in music. [Here again](https://elialbert.com/blog/cheesiness1) is the link to the intro piece outlining my full plan.  
 Through pain and love,  
 Eli
