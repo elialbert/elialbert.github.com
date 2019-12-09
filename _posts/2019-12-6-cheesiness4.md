@@ -28,7 +28,7 @@ A: a large proportion of humans are not able to meet their own basic needs.
 
 (We could argue all day on how deep or true this is but I'm going to take it as granted for the purposes of this essay series, so feel free to leave if you don't like it.)
 
-Revolutionary art consists of trying, through an infinite variety of means, to convince others of the above. And that message is a bitter pill, and will only be accesible in certain ways, at certain times, to certain people.
+Revolutionary art consists of trying, through an infinite variety of means, to convince others of the above. And that message is a bitter pill, and will only be accessible in certain ways, at certain times, to certain people.
 
 Anti-revolutionary communication, which I won't call art, but which we could call "modern entertainment", has only one purpose: to sell as much as possible. But to do that, it reduces its appeal to the lowest common denominator and makes itself as accessible as possible. This means it will always be easier to spread than art. It isn't _trying_ to disagree with the purpose of revolutionary art as stated above, but making something as appealing as possible makes it simple, and revolutionary ideas are not simple. What sells well is individual distraction, and what sells well and widely is simple individual distraction. So we can say that, as opposed to the above, modern entertainment has as its driving force:  
 
@@ -75,7 +75,7 @@ By being hyper accessible and enabling instant publication, the internet forced 
 
 The internet has also sped up and hypercharged our ability to categorize. Algorithms matching you with the perfect content are commonplace. But those algorithms work best when you, and the content you consume, can be bucketed into efficient, predictable categories. And even as those algorithms improve at long-tail hyper-specific recommendations for each person, they in turn induce us to accept that we are the person they construct. We sell our identity in return for tailored content.
 
-Revolutionary art _cannot_ work this way. People are ready to accept darkness and promote change at different times, in different ways. Maybe you can read this right now and think "I'm ready", and so the words that follow will impact you in a way that makes you want to help others. Maybe someone else isn't there yet, and so they won't read this at all, or they'll start it and be bored, or they'll read it and not understand. The spectacle has evolved the internet into a medium for distraction, while revolutionary art will always entail discomfort. 
+_Can_ revolutionary art work this way? At first glance it seems like it'd be helpful to have hyper-targeted leftist messages to convince each person in the way that would most connect with that person - but I don't think this is possible. The spectacle has evolved the internet into a medium for simple distraction, while revolutionary art will always entail concentrated discomfort. The internet's mechanisms of communication, and especially the hyper-targeted ones, are built specifically _not_ to revolutionize.
 
 ![]({{site.baseurl}}/assets/images/cheesy5.png)
 
