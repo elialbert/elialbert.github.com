@@ -39,13 +39,13 @@ After that I want to do a deep dive into music, and specifically, Cumbia and Reg
 Homework: listen to your favorite music with an ear to its roots.
 
 **Philosophy**
-Then I'll zoom back a bit and talk about Guy Debord's *Society of the Spectacle*, which I'll probably get completely wrong but this is a series of personal blog posts anyway so what can you do. Some of the ideas in the contemporary interpretation of Debord's philosophies pretty directly influence my thesis statement above, so hopefully this will help more than it'll confuse. We'll call it ["Stupid Internet"]({{site.baseurl}}/blog/cheesiness4/), and if all goes as planned this essay will do the heavy lifting in supporting my main point about bridging the past and the future while defying the present.  
+Then I'll zoom back a bit and talk about Guy Debord's *Society of the Spectacle*, which I'll probably get completely wrong but this is a series of personal blog posts anyway so what can you do. Some of the ideas in the contemporary interpretation of Debord's philosophies pretty directly influence my thesis statement above, so hopefully this will help more than it'll confuse. We'll call it ["Stupid Internet"]({{site.baseurl}}/blog/cheesiness4/), and if all goes as planned this essay will do the heavy lifting in supporting my main point about bridging the past and the future while defying the present.
 Homework: read [Society of the Spectacle](https://www.marxists.org/reference/archive/debord/society.htm) and Walter Benjamin's [The Work of Art in the Age of Mechanical Reproduction](https://www.marxists.org/reference/subject/philosophy/works/ge/benjamin.htm)
 
 ![]({{site.baseurl}}/assets/images/cheesy3.jpg)
 
 **Dad Jokes**
-Then we can conclude by getting deep into dad jokes. I'm not (yet) a dad but I do love the kind of humor that we attribute to dads, and I only plan to increase the frequency of my dad jokes as I get older. What makes cheesiness enjoyable sometimes? Can dad jokes be revolutionary? Actually let's just give this essay "Can Dad Jokes be Revolutionary?" as a working title. A good dad joke knows its audience and pokes fun at itself, and I think those two things, while seemingly trivial in this context, go a long way towards accomplishing our goals.
+Then we can conclude by getting deep into dad jokes. I'm not (yet) a dad but I do love the kind of humor that we attribute to dads, and I only plan to increase the frequency of my dad jokes as I get older. What makes cheesiness enjoyable sometimes? Can dad jokes be revolutionary? Actually let's just give this essay ["Can Dad Jokes be Revolutionary?"]({{site.baseurl}}/blog/cheesiness5/) as a working title. A good dad joke knows its audience and pokes fun at itself, and I think those two things, while seemingly trivial in this context, go a long way towards accomplishing our goals.
 Homework: ask your dad or a father figure what dad jokes mean to them.
 
 That's all I've planned so far; we'll have to see how close we stick to the plan. For now I'll just sign off,
