@@ -18,6 +18,7 @@
 
 .nav-item .nav-link.active {
   background-color: var(--indigo);
+  text-decoration: none;
 }
 
 .btn.btn-primary {
@@ -42,7 +43,7 @@ a {
   padding-top: 6px;
   padding-bottom: 6px;
   text-align: justify;
-  
+
 }
 .nav-link {
   padding-top: 0.5rem;
@@ -73,4 +74,8 @@ a {
 
 .ct-series-c .ct-line {
   stroke: gray;
+}
+
+.float-right {
+  float: right;
 }
