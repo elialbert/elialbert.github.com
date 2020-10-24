@@ -3,8 +3,8 @@ layout: post
 title:  "Tattoo Pain"
 author: eli
 categories: [ tattoos, pain, meditation, essays ]
-featured: true
-hidden: true
+featured: false
+hidden: false
 image: assets/images/tattoo1.jpg
 excerpt: A short essay on pain and its causes, through the lens of a new tattoo.
 ---
@@ -25,7 +25,7 @@ Time slowed down - I felt every individual impact of the needle gun, multiple ti
 
 The negative aspect of pain doesn't come from the affected body part, it comes from the brain - from the evolutionary pressure to not hurt the organism, written into some of the deepest sections of our brains. And even with pain at a 10 on my personal scale, which is to say, the worst I've ever felt, I was able at times to get past the pain and examine the root of the discomfort, which is the fear of damage to the organism, and not the pain itself. And that's all there is to it, although I have a feeling knowing this rationally, reading it in an essay, will not have the same effect as experiencing it as I've described above.
 
-In looking around online while thinking about this post, I came across an interesting person who wrote an interesting essay on the topic. [Charles Eisenstein](https://en.wikipedia.org/wiki/Charles_Eisenstein) (socialist, buddhist, essayist) writes in [Pain - a call for attention](https://charleseisenstein.org/essays/pain-a-call-for-attention/) that 
+In looking around online while thinking about this post, I came across an interesting person who wrote an interesting essay on the topic. [Charles Eisenstein](https://en.wikipedia.org/wiki/Charles_Eisenstein) (socialist, buddhist, essayist) writes in [Pain - a call for attention](https://charleseisenstein.org/essays/pain-a-call-for-attention/) that
 
 _"...negative emotions are not obstacles, they are symptoms of obstacles. Let us not commit the error of treating the symptom and not the cause."_
 
