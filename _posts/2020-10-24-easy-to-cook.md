@@ -3,8 +3,8 @@ layout: post
 title:  "Intuitive Cooking"
 author: eli
 categories: [ cooking, life, skills, meditation, essays ]
-featured: true
-hidden: true
+featured: false
+hidden: false
 image: https://res.cloudinary.com/dlamvouvc/image/upload/w_2500,h_3000,c_crop/v1603543731/eli/IMG_4010_qndhq8.jpg
 excerpt: First in a multi part series about how to cook and bake without getting sweaty
 ---
