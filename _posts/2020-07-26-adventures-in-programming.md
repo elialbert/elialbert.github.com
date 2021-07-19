@@ -118,7 +118,7 @@ After a little rest to clear my head, I considered abandoning the problem until 
 Well the short of it is that didn't work either. I only spent another 40 minutes on that, playing with counting the times the rollup algorithm visited each node and then scaling the risk probability down for nodes that got visited more often. It only sort of worked. The fact is, I don't want the algorithm to only sort of work.
 
 ### the miracle
-This story has a happy ending! I can't even explain it. I was listlessly, hopelessly scrolling around cytoscape graphing tool documentation when something caught my eye that I hadn't previously noticed. The Djikstra algorithm, the very same one I'd started off with, had a parameter in [the documentation](https://js.cytoscape.org/#eles.dijkstra) for a weighting function. And I instantly, intuitvely knew that this was going to work. Like a lightning bold.
+This story has a happy ending! I can't even explain it. I was listlessly, hopelessly scrolling around cytoscape graphing tool documentation when something caught my eye that I hadn't previously noticed. The Djikstra algorithm, the very same one I'd started off with, had a parameter in [the documentation](https://js.cytoscape.org/#eles.dijkstra) for a weighting function. And I instantly, intuitvely knew that this was going to work. Like a lightning bolt.
 It said:
 
 > **weight: function(edge)**  [optional] A function that returns the positive numeric weight for the edge. The weight indicates the cost of going from one node to another node.
