@@ -1,3 +1,15 @@
+---
+layout: post
+title:  "The Poem Fairy"
+author: eli
+categories: [ writing, novella, poetry ]
+featured: false
+hidden: false
+iii: true
+image: https://res.cloudinary.com/dlamvouvc/image/upload/f_auto,q_auto/v1/eli/x28t5f435o5gc2lfyiwj
+excerpt: Three short stories about a poem fairy
+---
+
 1. **Sad Busboy**
 
 Max approached his quarry with trepidation; he had the same internal monologue each time he needed to lift a pot up the stairs. Why? Why boil the ramen stock in the basement, and then force the staff to take it upstairs while scalding and full? He donned his oven gloves and sighed.
