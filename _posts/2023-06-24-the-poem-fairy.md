@@ -5,7 +5,6 @@ author: eli
 categories: [ writing, novella, poetry ]
 featured: false
 hidden: false
-iii: true
 image: https://res.cloudinary.com/dlamvouvc/image/upload/f_auto,q_auto/v1/eli/x28t5f435o5gc2lfyiwj
 excerpt: Three short stories about a poem fairy
 ---
