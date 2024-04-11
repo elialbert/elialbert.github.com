@@ -43,7 +43,7 @@ I’m really glad for the experience that was the ribcage, and I wouldn’t trad
 
 ![*painting the big mural at the ribcage. *Oh, yes, those were good times.*]({{site.baseurl}}/assets/images/cap9.jpg)painting the big mural at the ribcage. *Oh, yes, those were good times.*
 
-I took a year off of communes after that. Actually swore to grow up and stop being so idealistic. So where am I now? Well last year I bought a house in west logan square, and I’m about to start a new commune. I call it the [crumble house](http://crumble.elialbert.com). It’s pretty crumbly and old, which is great, because there’s really not much chance of making it worse. I’ve been doing a ton of fixer-upping in my spare time here, and the house has gone from a mess to a beautiful mess.
+I took a year off of communes after that. Actually swore to grow up and stop being so idealistic. So where am I now? Well last year I bought a house in west logan square, and I’m about to start a new commune. I call it the [crumble house](https://www.redfin.com/IL/Chicago/2622-N-Central-Park-Ave-60647/home/183796551). It’s pretty crumbly and old, which is great, because there’s really not much chance of making it worse. I’ve been doing a ton of fixer-upping in my spare time here, and the house has gone from a mess to a beautiful mess.
 
 ![*the crumble house. decoration is a constant work in progress.*]({{site.baseurl}}/assets/images/cap10.jpg)**the crumble house. decoration is a constant work in progress.**
 
