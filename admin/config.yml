@@ -2,7 +2,7 @@ backend:
   name: github
   repo: elialbert/elialbert.github.com
   branch: master
-  site_domain: elialbert.com/blog/
+  site_id: 6516436f-4708-4fd9-96f6-e8da211b515b
 
 publish_mode: editorial_workflow
 media_folder: "assets/uploads"
