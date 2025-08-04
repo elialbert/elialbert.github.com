@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
+gem 'github-pages', '~> 232'
 
 group :jekyll_plugins do
-    gem 'github-pages'
     gem 'jekyll-feed'
     gem 'jekyll-sitemap'
     gem 'jekyll-paginate'

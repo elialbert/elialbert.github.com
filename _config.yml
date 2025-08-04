@@ -8,6 +8,16 @@ google_analytics: 'UA-61651137-1'
 include: ["_pages"]
 permalink: /blog/:title/
 
+collections:
+  tech:
+    output: true
+    permalink: /tech-blog/:name/
+  bits:
+    output: true
+    permalink: /bits/:name/
+
+
+
 authors:
   eli:
     name: Eli
