@@ -3,6 +3,7 @@ backend:
   repo: elialbert/elialbert.github.com
   branch: master
   site_id: 6516436f-4708-4fd9-96f6-e8da211b515b
+  site_url: eloquent-salamander-efbda9.netlify.app
 
 publish_mode: editorial_workflow
 media_folder: "assets/uploads"
