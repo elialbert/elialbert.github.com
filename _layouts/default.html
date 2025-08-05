@@ -77,6 +77,20 @@ ga('send', 'pageview');
                 {% endif %}
                 <a class="nav-link" href="{{ site.baseurl }}/blog/">Blog</a>
                 </li>
+                {% if page.url == "/tech-blog/" %}
+                <li class="nav-item active">
+                {% else %}
+                <li class="nav-item">
+                {% endif %}
+                <a class="nav-link" href="{{ site.baseurl }}/tech-blog/">Tech</a>
+                </li>
+                {% if page.url == "/bits/" %}
+                <li class="nav-item active">
+                {% else %}
+                <li class="nav-item">
+                {% endif %}
+                <a class="nav-link" href="{{ site.baseurl }}/bits/">Bits</a>
+                </li>
 
                 {% include search-lunr.html %}
 
