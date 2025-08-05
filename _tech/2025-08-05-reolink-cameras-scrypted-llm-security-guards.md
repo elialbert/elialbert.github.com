@@ -24,3 +24,9 @@ But then the two older 510s were giving me intermittent disconnections that were
 * when moved back outside on a cool day, still disconnected
 * when plugged into ethernet, less issues but still some
 * when unscrewed from wall, and pointed skyward, less issues but still some, but almost none
+
+I finally figured it out - between the Reolink app, the camera's onboard motion detection, and the various camera feeds opened by Home Assistant and Scrypted, I was maxing out the older cameras' on-board systems but *only while doing lots of motion detection.*\
+\
+Anyway I switched off of Scrypted and on to Frigate, set up a less intense feed system, and now everything is great.\
+\
+Finally had it working so then I set up [LLM Vision](https://llmvision.org/) as an action in Home Assistant and used it to write some custom automations that, using the camera's on-board person detection as a trigger, send a little clip to Claude Haiku to let me know if anything suspicious is happening along the side or back of my house. It push notifies and records an event in Frigate. So far nothing suspicious has happened (5-10 false positives tho...) at the cost of 2 cents per day.[](https://llmvision.org/)
