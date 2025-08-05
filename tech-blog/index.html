@@ -3,26 +3,6 @@ layout: default
 title: Tech Blog
 ---
 
-<!-- Featured Tech Posts
-================================================== -->
-<section class="featured-posts">
-    <div class="section-title">
-        <h2><span>Featured Tech</span></h2>
-    </div>
-    <div class="row">
-
-    {% for post in site.tech %}
-
-        {% if post.featured == true %}
-
-            {% include featuredbox.html %}
-
-        {% endif %}
-
-    {% endfor %}
-
-    </div>
-</section>
 
 <!-- Tech Posts Index
 ================================================== -->
