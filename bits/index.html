@@ -1,0 +1,23 @@
+---
+layout: default
+title: Bits
+---
+<section class="recent-posts">
+
+    <div class="section-title">
+
+        <h2><span>Bits</span></h2>
+
+    </div>
+
+    <div class="row listrecent">
+
+        {% for post in site.bits %}
+
+        {% include postbox.html %}
+
+        {% endfor %}
+
+    </div>
+
+</section>
