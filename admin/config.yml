@@ -42,7 +42,7 @@ collections:
     create: true
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
     fields:
-      - {label: "Layout", name: "layout", widget: "hidden", default: "bit"}
+      - {label: "Layout", name: "layout", widget: "hidden", default: "bits"}
       - {label: "Title", name: "title", widget: "string"}
       - {label: "Date", name: "date", widget: "datetime"}
       - {label: "Categories", name: "categories", widget: "list", required: false}
