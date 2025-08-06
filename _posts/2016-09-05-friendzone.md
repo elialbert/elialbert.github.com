@@ -2,7 +2,8 @@
 layout: post
 title:  "FRIENDZONE"
 author: eli
-categories: [ essays, relationships, sex, life ]
+categories: [ essays, advice ]
+tags: [ relationships, sex, life ]
 featured: false
 ---
 

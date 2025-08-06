@@ -2,8 +2,9 @@
 layout: post
 title:  "Adventures in Post-Scarcity Capitalism"
 author: eli
-categories: [ essays, life, capitalism, communes ]
+categories: [ essays ]
 image: assets/images/cap1.jpg
+tags: [ life, capitalism, communes ]
 featured: false
 ---
 

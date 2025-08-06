@@ -2,8 +2,9 @@
 layout: post
 title:  "Rear Window’s Villian"
 author: eli
-categories: [ hitchcock, movies, essays ]
+categories: [ essays ]
 image: assets/images/rearwindow.png
+tags: [ hitchcock, movies ]
 featured: false
 ---
 

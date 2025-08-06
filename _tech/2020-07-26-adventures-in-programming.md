@@ -1,8 +1,9 @@
 ---
-layout: post
+layout: tech
 title:  "Adventures in Programming"
 author: eli
-categories: [ programming, essays, life, lessons ]
+categories: [ programming ]
+tags: [ life, lessons ]
 featured: false
 hidden: false
 image: assets/images/squadsimple.png

@@ -2,7 +2,8 @@
 layout: post
 title:  "Stupid Internet"
 author: eli
-categories: [ art, cheesiness, essays, internet ]
+categories: [ essays ]
+tags: [ art, cheesiness, internet ]
 featured: false
 hidden: false
 image: assets/images/anarchosticker2.png

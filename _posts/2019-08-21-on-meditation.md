@@ -2,8 +2,9 @@
 layout: post
 title:  "On Meditation"
 author: eli
-categories: [ meditation, life, essays ]
+categories: [ essays, advice ]
 image: assets/images/meditation.jpg
+tags: [ meditation, life ]
 featured: false
 hidden: false
 excerpt: Wherein I, Eli, humbly beg you, the reader, to start a meditation practice.

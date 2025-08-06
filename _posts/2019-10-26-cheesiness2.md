@@ -2,7 +2,8 @@
 layout: post
 title:  "Garden State (2004) is a Bad Movie"
 author: eli
-categories: [ art, cheesiness, essays, capitalism ]
+categories: [ essays ]
+tags: [ art, cheesiness, capitalism ]
 featured: false
 hidden: false
 image: assets/images/gardenstate1.jpeg

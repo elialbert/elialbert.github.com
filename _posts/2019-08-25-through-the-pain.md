@@ -2,7 +2,8 @@
 layout: post
 title:  "Tattoo Pain"
 author: eli
-categories: [ tattoos, pain, meditation, essays ]
+categories: [ essays, advice ]
+tags: [ tattoos, pain, meditation ]
 featured: false
 hidden: false
 image: assets/images/tattoo1.jpg

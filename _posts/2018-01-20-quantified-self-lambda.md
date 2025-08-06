@@ -2,8 +2,9 @@
 layout: post
 title:  "Quantified Self and Color Schemes"
 author: eli
-categories: [ aws, tech ]
+categories: [ tech ]
 image: assets/images/qs9.jpg
+tags: [ aws ]
 featured: false
 ---
 

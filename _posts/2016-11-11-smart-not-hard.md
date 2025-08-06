@@ -2,7 +2,8 @@
 layout: post
 title:  "smart not hard"
 author: eli
-categories: [ essays, life, protest, trump ]
+categories: [ essays ]
+tags: [ life, protest, trump ]
 featured: false
 ---
 

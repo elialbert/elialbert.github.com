@@ -2,7 +2,8 @@
 layout: post
 title:  "Can Dad Jokes Be Revolutionary?"
 author: eli
-categories: [ art, families, cheesiness, essays ]
+categories: [ essays ]
+tags: [ art, families, cheesiness, ]
 featured: false
 hidden: false
 image: assets/images/cheesy8.png

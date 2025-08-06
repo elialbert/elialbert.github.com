@@ -2,6 +2,7 @@
 layout: tech
 title: Reolink cameras, Scrypted, LLM security guards
 date: 2025-08-05T05:19:00.000-05:00
+categories: [ smart-home ]
 tags:
   - reolink
   - security

@@ -2,8 +2,9 @@
 layout: post
 title:  "Painting & Patience"
 author: eli
-categories: [ art, life, essays ]
+categories: [ essays ]
 image: assets/images/painting3a.jpg
+tags: [ art, life ]
 featured: false
 ---
 

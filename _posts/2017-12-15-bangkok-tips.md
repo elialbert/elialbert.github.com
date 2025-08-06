@@ -4,6 +4,7 @@ title:  "Bangkok tips & tricks"
 author: eli
 categories: [ travel ]
 image: assets/images/bangkok1.jpg
+tags: [ ]
 featured: false
 hidden: false
 ---

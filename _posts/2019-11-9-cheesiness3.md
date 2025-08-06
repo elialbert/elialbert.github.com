@@ -2,7 +2,8 @@
 layout: post
 title:  "Tradition and the end of art"
 author: eli
-categories: [ art, cheesiness, essays, music ]
+categories: [ essays ]
+tags: [ art, cheesiness, music ]
 featured: false
 hidden: false
 image: assets/images/cheesy4.jpg

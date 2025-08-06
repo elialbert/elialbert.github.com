@@ -2,7 +2,8 @@
 layout: post
 title:  "Intuitive Cooking"
 author: eli
-categories: [ cooking, life, skills, meditation, essays ]
+categories: [ essays, advice ]
+tags: [ cooking, life, skills, meditation, ]
 featured: false
 hidden: false
 image: http://res.cloudinary.com/dddmxax9u/image/upload/w_2500,h_3000,c_crop/q_auto/f_auto/e4qjm5zzdshow3ioz9kq

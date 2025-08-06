@@ -3,6 +3,7 @@ layout: post
 title:  "Impossible apps from the future"
 author: eli
 categories: [ tech, apps ]
+tags: [ silly ]
 featured: false
 ---
 

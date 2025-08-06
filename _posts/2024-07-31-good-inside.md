@@ -2,7 +2,8 @@
 layout: post
 title:  "Good Inside"
 author: eli
-categories: [ children, life, skills, books, therapy ]
+categories: [ essays, advice, children ]
+tags: [ children, life, skills, books, therapy ]
 featured: false
 hidden: false
 iii: true

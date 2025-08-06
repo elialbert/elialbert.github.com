@@ -2,7 +2,8 @@
 layout: post
 title:  "Revolutionary Art"
 author: eli
-categories: [ art, debord, cheesiness, essays ]
+categories: [ essays ]
+tags: [ art, debord, cheesiness ]
 featured: true
 hidden: false
 image: assets/images/cheesyintro.png

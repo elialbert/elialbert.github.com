@@ -2,7 +2,8 @@
 layout: post
 title:  "The Tyranny of Dishes"
 author: eli
-categories: [ essays, life, capitalism, communes, dishes ]
+categories: [ essays,  ]
+tags: [ life, capitalism, communes, dishes ]
 featured: false
 ---
 
