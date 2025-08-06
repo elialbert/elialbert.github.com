@@ -2,7 +2,7 @@
 layout: post
 title:  "The Poem Fairy"
 author: eli
-categories: [ writing ]
+categories: [ creative-writing ]
 tags: [ novella, poetry ]
 featured: false
 hidden: false
