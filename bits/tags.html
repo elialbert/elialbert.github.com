@@ -1,0 +1,24 @@
+---
+title: "Bits Tags"
+layout: default
+permalink: "/bits/tags.html"
+---
+
+<div class="row listrecent">
+{% assign all_tags = site.bits | map: 'tags' | join: ',' | split: ',' | uniq | sort %}
+{% for tag in all_tags %}
+  {% if tag != '' %}
+    {% assign tag_posts = site.bits | where_exp: "post", "post.tags contains tag" %}
+    {% if tag_posts.size > 0 %}
+      <div class="section-title col-md-12 mt-4">
+        <h2 id="{{ tag | replace: " ","-" }}">Tag <span class="text-capitalize">{{ tag }}</span></h2>
+      </div>
+      {% for post in tag_posts %}
+        {% if post.title != null %}
+          {% include postbox.html %}
+        {% endif %}
+      {% endfor %}
+    {% endif %}
+  {% endif %}
+{% endfor %}
+</div>

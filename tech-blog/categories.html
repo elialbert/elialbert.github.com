@@ -1,0 +1,24 @@
+---
+title: "Tech Blog Categories"
+layout: default
+permalink: "/tech-blog/categories.html"
+---
+
+<div class="row listrecent">
+{% assign all_categories = site.tech | map: 'categories' | join: ',' | split: ',' | uniq | sort %}
+{% for category in all_categories %}
+  {% if category != '' %}
+    {% assign category_posts = site.tech | where_exp: "post", "post.categories contains category" %}
+    {% if category_posts.size > 0 %}
+      <div class="section-title col-md-12 mt-4">
+        <h2 id="{{ category | replace: " ","-" }}">Category <span class="text-capitalize">{{ category }}</span></h2>
+      </div>
+      {% for post in category_posts %}
+        {% if post.title != null %}
+          {% include postbox.html %}
+        {% endif %}
+      {% endfor %}
+    {% endif %}
+  {% endif %}
+{% endfor %}
+</div>
