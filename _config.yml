@@ -7,6 +7,8 @@ favicon: 'favicon.ico'
 google_analytics: 'UA-61651137-1'
 include: ["_pages"]
 permalink: /blog/:title/
+url: "elialbert.com"
+baseurl: ""
 
 collections:
   tech:
