@@ -3,6 +3,7 @@ layout: tech
 title: More quantified self + colors fun
 image: /assets/uploads/blogpost.png
 date: 2025-08-06T17:59:00
+author: eli
 categories:
   - tech
   - ai
