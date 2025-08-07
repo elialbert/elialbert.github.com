@@ -354,7 +354,7 @@
 
   </script>
   <script>
-    $.get('https://d19nd43hni5za9.cloudfront.net/qs-data.json').then(
+    $.get('https://s3.amazonaws.com/qs-storage/qs-data.json?crossorigin=anonymous').then(
       function(x) {
         var data = JSON.parse(x);
         // console.log(data)
