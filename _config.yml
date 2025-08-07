@@ -4,7 +4,6 @@ title: "crumbleblog"
 description: "odds and ends"
 logo: 'favicon.ico'
 favicon: 'favicon.ico'
-google_analytics: 'UA-61651137-1'
 include: ["_pages"]
 permalink: /blog/:title/
 url: "https://elialbert.com"
