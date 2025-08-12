@@ -11,10 +11,10 @@ tags:
   - poetry
 author: eli
 ---
-all of humandom is a tangled mane  
-all burrs and matted  
-intractable.  
-any single knot would pick right out  
+all of humandom is a tangled mane     
+all burrs and matted   
+intractable.    
+any single knot would pick right out   
 if we could find the ends  
 and hold on  
 but we can’t:  
