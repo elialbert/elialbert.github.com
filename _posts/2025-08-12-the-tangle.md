@@ -4,10 +4,11 @@ title: The Tangle
 image: /assets/uploads/IMG_5342.jpeg
 date: 2025-08-12T05:58:00
 categories:
-  - poetry
+  - creative-writing
 tags:
   - politics
   - life
+  - poetry
 author: eli
 ---
 all of humandom is a tangled mane
