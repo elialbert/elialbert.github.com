@@ -25,7 +25,7 @@ and hold on
 
 but we can’t:
 
-the ends are thousands of other knots away.  
+the ends are thousands of other knots away.
 
 nevertheless we try
 
