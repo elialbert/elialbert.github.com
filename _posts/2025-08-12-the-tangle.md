@@ -13,7 +13,7 @@ author: eli
 ---
 all of humandom is a tangled mane     
 all burrs and matted   
-intractable.    
+intractable.  
 any single knot would pick right out   
 if we could find the ends  
 and hold on  
