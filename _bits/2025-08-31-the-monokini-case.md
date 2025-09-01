@@ -4,10 +4,10 @@ title: The Monokini Case
 image: /assets/uploads/IMG_5501.jpeg
 date: 2025-08-31T13:41:00
 categories:
-  - silly
+  - projects
 tags:
   - phone
-  - projects
+  - silly
 author: eli
 ---
 I like an iphone case for a couple reasons - phone doesn’t wobble when you lay it flat, better grip. Some drop protection is nice on the corners - I don’t drop my phones that much.
