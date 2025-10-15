@@ -5,6 +5,7 @@ image: /assets/uploads/dogmirror.jpg
 date: 2025-10-15T11:39:00
 categories:
   - silly
+  - craigslist
 tags:
   - mirror
 author: eli
