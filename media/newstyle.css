@@ -32,11 +32,80 @@ a {
 
 .background {
 }
-.card {
+/* CSS columns for true masonry layout */
+.card-grid {
+  column-count: 3;
+  column-gap: 30px;
+}
+
+@media (max-width: 992px) {
+  .card-grid {
+    column-count: 2;
+  }
+}
+
+@media (max-width: 576px) {
+  .card-grid {
+    column-count: 1;
+  }
+}
+
+/* Row-based grid layout for profiles and paid */
+.card-grid-row {
+  column-count: unset;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 30px;
+  align-items: stretch;
+}
+
+#paid .card-wrapper {
+  display: flex;
+}
+
+#paid .card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+#paid .card-body {
+  flex-grow: 1;
+}
+
+@media (max-width: 992px) {
+  .card-grid-row {
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  }
+}
+
+@media (max-width: 576px) {
+  .card-grid-row {
+    grid-template-columns: 1fr;
+  }
+}
+
+.card-wrapper {
+  break-inside: avoid;
   margin-bottom: 30px;
+  display: inline-block;
+  width: 100%;
+}
+
+.card {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  height: auto;
+}
+
+/* Add padding to images in paid section */
+#paid .card-img-top {
+  padding: 16px;
 }
 .tab-content {
   background-color: #efefef;
+  padding-bottom: 60px;
 }
 .echeader {
   /*background-color: #efefef;*/
