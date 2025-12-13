@@ -3,7 +3,6 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.2/css/bootstrap.min.css" integrity="sha512-rt/SrQ4UNIaGfDyEXZtNcyWvQeOq0QLygHluFQcSjaGB04IxWhal71tKuzP6K8eYXYB6vJV4pHkXcmFGGQ1/0w==" crossorigin="anonymous" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/chartist/0.11.4/chartist.min.css" integrity="sha256-seGyqLj5T52Hx8W7/YTajtNXGXQf+IksfkcaKGoTkbY=" crossorigin="anonymous" />
   <title>Eli Albert</title>
 
@@ -352,58 +351,92 @@
 
   </div>
 
-  <script
-    src="https://code.jquery.com/jquery-3.6.4.min.js"
-    integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8="
-    crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.1/umd/popper.min.js" integrity="sha512-ubuT8Z88WxezgSqf3RLuNi5lmjstiJcyezx34yIU2gAHonIi27Na7atqzUZCOoY4CExaoFumzOsFQ2Ch+I/HCw==" crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.2/js/bootstrap.min.js" integrity="sha512-7rusk8kGPFynZWu26OKbTeI+QPoYchtxsmPeBqkHIEXJxeun4yJ4ISYe7C6sz9wdxeE1Gk3VxsIWgCZTc+vX3g==" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/chartist/0.11.4/chartist.min.js" integrity="sha256-xNhpuwaNiVdna6L8Wy3GNuQz1z+SCmo4NY1c7cJ9Vdc=" crossorigin="anonymous"></script>
   
   <script>
-    $.get('https://s3.amazonaws.com/qs-storage/qs-data.json?crossorigin=anonymous').then(
-      function(x) {
-        var data = JSON.parse(x);
-        // console.log(data)
+    // Fetch dynamic color data
+    fetch('https://s3.amazonaws.com/qs-storage/qs-data.json?crossorigin=anonymous')
+      .then(response => response.json())
+      .then(data => {
         if (!data || !data.main) {
           return;
         }
-        $('.card').css('background-color', '#' + data.main);
-        $('.card').css('border-color', '#000');
-        $('a').css('color', '#' + data.comp1);
-        // $('.echeader').css('background-color', data.main);
-        $('a.btn.btn-primary').css('color', '#fff');
-        // $('.nav-item .nav-link.active').css('background-color', '#' + data.comp1);
-        // $('.nav-item a.nav-link.active').css('color', "#fff");
-        $('.nav-item .nav-link.active').css('background-color', '#' + data.comp1);
-        $('.nav-item .nav-link.active').css('color', '#fff');
-        $('.nav-item .nav-link.active').css('text-decoration', 'none');
-        // $('.nav-item .nav-link.active').css('font-weight', '900');
-        // $('.nav-item a.nav-link.active').css('color', '#' + data.main);
 
-        $('.btn.btn-primary').css('background-color', '#' + data.comp1);
-        $('.btn.btn-primary').css('border-color', '#' + data.comp1);
-
-
-
-        $('a[data-toggle="tab"]').on('show.bs.tab', function(e) {
-          $(e.target).css('background-color', '#' + data.comp1);
-          $(e.target).css('color', '#fff');
-          $(e.target).css('text-decoration', 'none');
-          // $(e.target).css('font-weight', '900');
+        // Apply styles to cards
+        document.querySelectorAll('.card').forEach(el => {
+          el.style.backgroundColor = '#' + data.main;
+          el.style.borderColor = '#000';
         });
-        $('a[data-toggle="tab"]').on('hide.bs.tab', function(e) {
-          $(e.target).css('background-color', '#fff');
-          $(e.target).css('color', '#' + data.comp1);
-          $(e.target).css('text-decoration', 'none');
-          // $(e.target).css('font-weight', 'normal');
+
+        // Apply styles to links
+        document.querySelectorAll('a').forEach(el => {
+          el.style.color = '#' + data.comp1;
         });
+
+        // Keep primary buttons white
+        document.querySelectorAll('a.btn.btn-primary').forEach(el => {
+          el.style.color = '#fff';
+        });
+
+        // Style active nav links
+        document.querySelectorAll('.nav-item .nav-link.active').forEach(el => {
+          el.style.backgroundColor = '#' + data.comp1;
+          el.style.color = '#fff';
+          el.style.textDecoration = 'none';
+        });
+
+        // Style primary buttons
+        document.querySelectorAll('.btn.btn-primary').forEach(el => {
+          el.style.backgroundColor = '#' + data.comp1;
+          el.style.borderColor = '#' + data.comp1;
+        });
+
+        // Add tab event listeners for dynamic coloring
+        document.querySelectorAll('a[data-toggle="tab"]').forEach(tab => {
+          tab.addEventListener('click', function(e) {
+            e.preventDefault();
+
+            // Update styles for active tab
+            document.querySelectorAll('a[data-toggle="tab"]').forEach(t => {
+              t.style.backgroundColor = '#fff';
+              t.style.color = '#' + data.comp1;
+              t.style.textDecoration = 'none';
+              t.classList.remove('active');
+              t.setAttribute('aria-selected', 'false');
+            });
+
+            this.style.backgroundColor = '#' + data.comp1;
+            this.style.color = '#fff';
+            this.style.textDecoration = 'none';
+            this.classList.add('active');
+            this.setAttribute('aria-selected', 'true');
+
+            // Handle tab pane visibility
+            const targetId = this.getAttribute('href').substring(1);
+            document.querySelectorAll('.tab-pane').forEach(pane => {
+              pane.classList.remove('show', 'active');
+            });
+
+            const targetPane = document.getElementById(targetId);
+            if (targetPane) {
+              targetPane.classList.add('show', 'active');
+            }
+          });
+        });
+
+        // Twitter quote
         if (data.twitter) {
-          $('.twitter-quote').text(data.twitter);
+          const twitterQuote = document.querySelector('.twitter-quote');
+          if (twitterQuote) {
+            twitterQuote.textContent = data.twitter;
+          }
         }
+
+        // Chart
         if (data.data) {
-          $('.under-content').css('background-color', '#' + data.main);
-          $('.under-content').css('border', '1px solid black');
+          const underContent = document.querySelector('.under-content');
+          underContent.style.backgroundColor = '#' + data.main;
+          underContent.style.border = '1px solid black';
 
           new Chartist.Line('.under-content', {
             labels: ['ex', 'med', 'f'],
@@ -417,7 +450,6 @@
             showArea: false,
             showLine: true,
             showPoint: false,
-
             chartPadding: {
               top: 20,
               left: -15,
@@ -434,13 +466,13 @@
             }
           });
         }
-      }
-    );
-    var showEmail = function() {
-      $('#hiddenEmail').html('Gmail: elialbert');
-    };
+      })
+      .catch(error => console.error('Error fetching data:', error));
 
-
+    // Email reveal function
+    function showEmail() {
+      document.getElementById('hiddenEmail').innerHTML = 'Gmail: elialbert';
+    }
   </script>
 </body>
 
