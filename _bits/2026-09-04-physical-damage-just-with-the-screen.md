@@ -2,7 +2,7 @@
 layout: bits
 title: '"physical damage just with the screen"'
 image: /assets/uploads/Screenshot 2026-09-04 at 12.00.32 PM.png
-date: ''
+date: 2026-09-04T12:01:00
 categories:
   - marketplace
 tags:
