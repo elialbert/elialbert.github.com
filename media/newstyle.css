@@ -1,3 +1,20 @@
+/* QS palette -----------------------------------------------------------------
+   `main` and `comp1` arrive from qs-data.json and are written onto :root by
+   /media/qs-palette.js. Every foreground below is derived from its own
+   background, so neither colour has to be light or dark for the page to stay
+   legible. The defaults reproduce the pre-fetch appearance.
+   See the vault note projects/qs-colours.md. */
+:root {
+  --qs-page-bg: #efefef;        /* what .tab-content is, for link contrast */
+  --qs-main: #ffffff;           /* card / chart-panel background */
+  --qs-comp1: #6610f2;          /* accent: buttons, pills, borders */
+  --qs-on-main: #000000;        /* text on --qs-main */
+  --qs-on-comp1: #ffffff;       /* text on --qs-comp1 */
+  --qs-link: #6610f2;           /* accent made legible on --qs-page-bg */
+  --qs-link-on-main: #6610f2;   /* accent made legible on --qs-main */
+  --qs-chart-dim: #808080;      /* third chart line, >=3:1 on --qs-main */
+}
+
 .padding-top {
   padding-top: 30px;
 }
@@ -17,17 +34,20 @@
 }
 
 .nav-item .nav-link.active {
-  background-color: var(--indigo);
+  background-color: var(--qs-comp1);
+  color: var(--qs-on-comp1);
   text-decoration: none;
 }
 
-.btn.btn-primary {
-  background-color: var(--indigo);
-  border-color: var(--indigo);
+.btn.btn-primary,
+a.btn.btn-primary {
+  background-color: var(--qs-comp1);
+  border-color: var(--qs-comp1);
+  color: var(--qs-on-comp1);
 }
 
 a {
-  color: var(--indigo);
+  color: var(--qs-link);
 }
 
 .background {
@@ -97,6 +117,14 @@ a {
   display: flex;
   flex-direction: column;
   height: auto;
+  background-color: var(--qs-main);
+  color: var(--qs-on-main);
+  border-color: var(--qs-comp1);
+}
+
+/* Links sitting on a card are on --qs-main, not on the page background. */
+.card a:not(.btn) {
+  color: var(--qs-link-on-main);
 }
 
 /* Add padding to images in paid section */
@@ -129,20 +157,25 @@ a {
 .under-content {
   position: absolute;
   height: 120px;
-  background-color: #efefef;
+  background-color: var(--qs-main);
   width: 100%;
 }
 
+.under-content.has-chart {
+  border: 1px solid #000;
+}
+
+/* All three lines are drawn on --qs-main, so all three are derived from it. */
 .ct-series-a .ct-line {
-  stroke: black;
+  stroke: var(--qs-on-main);
 }
 
 .ct-series-b .ct-line {
-  stroke: white;
+  stroke: var(--qs-link-on-main);
 }
 
 .ct-series-c .ct-line {
-  stroke: gray;
+  stroke: var(--qs-chart-dim);
 }
 
 .float-right {

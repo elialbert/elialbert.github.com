@@ -186,22 +186,11 @@
 {% endif %}
 
 <script src="{{ site.baseurl }}/assets/js/ie10-viewport-bug-workaround.js"></script> 
+<script src="{{ site.baseurl }}/media/qs-palette.js"></script>
 <script>
-  $.get('https://s3.amazonaws.com/qs-storage/qs-data.json?crossorigin=anonymous').then(
-    function(x) {
-      // S3 has served this object as application/json since 2026-09-13, so
-      // jQuery's content-type guess hands back an already-parsed object; it
-      // used to arrive as a raw string (binary/octet-stream). Accept either.
-      var data = (typeof x === 'string') ? JSON.parse(x) : x;
-      console.log(data)
-      $('.navbar').css('background-color', '#' + data.main);
-      $('.card').css('border', '1px solid #' + data.comp1);
-      if (data.twitter) {
-        $('.twitter-quote').text(data.twitter);
-      }
-    }
-  );
-  
+  // Colours arrive as CSS custom properties on :root; the rules that use them
+  // live in assets/css/main.scss.
+  QSPalette.load();
 </script>
 <script>
   if (window.netlifyIdentity) {

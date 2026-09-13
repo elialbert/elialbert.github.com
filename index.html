@@ -360,85 +360,46 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.2/js/bootstrap.min.js" integrity="sha512-7rusk8kGPFynZWu26OKbTeI+QPoYchtxsmPeBqkHIEXJxeun4yJ4ISYe7C6sz9wdxeE1Gk3VxsIWgCZTc+vX3g==" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/chartist/0.11.4/chartist.min.js" integrity="sha256-xNhpuwaNiVdna6L8Wy3GNuQz1z+SCmo4NY1c7cJ9Vdc=" crossorigin="anonymous"></script>
   
+  <script src="/media/qs-palette.js"></script>
+
   <script>
-    $.get('https://s3.amazonaws.com/qs-storage/qs-data.json?crossorigin=anonymous').then(
-      function(x) {
-        // S3 has served this object as application/json since 2026-09-13, so
-        // jQuery's content-type guess hands back an already-parsed object; it
-        // used to arrive as a raw string (binary/octet-stream). Accept either.
-        var data = (typeof x === 'string') ? JSON.parse(x) : x;
-        // console.log(data)
-        if (!data || !data.main) {
-          return;
-        }
-        $('.card').css('background-color', '#' + data.main);
-        $('.card').css('border-color', '#000');
-        $('a').css('color', '#' + data.comp1);
-        // $('.echeader').css('background-color', data.main);
-        $('a.btn.btn-primary').css('color', '#fff');
-        // $('.nav-item .nav-link.active').css('background-color', '#' + data.comp1);
-        // $('.nav-item a.nav-link.active').css('color', "#fff");
-        $('.nav-item .nav-link.active').css('background-color', '#' + data.comp1);
-        $('.nav-item .nav-link.active').css('color', '#fff');
-        $('.nav-item .nav-link.active').css('text-decoration', 'none');
-        // $('.nav-item .nav-link.active').css('font-weight', '900');
-        // $('.nav-item a.nav-link.active').css('color', '#' + data.main);
-
-        $('.btn.btn-primary').css('background-color', '#' + data.comp1);
-        $('.btn.btn-primary').css('border-color', '#' + data.comp1);
-
-
-
-        $('a[data-toggle="tab"]').on('show.bs.tab', function(e) {
-          $(e.target).css('background-color', '#' + data.comp1);
-          $(e.target).css('color', '#fff');
-          $(e.target).css('text-decoration', 'none');
-          // $(e.target).css('font-weight', '900');
-        });
-        $('a[data-toggle="tab"]').on('hide.bs.tab', function(e) {
-          $(e.target).css('background-color', '#fff');
-          $(e.target).css('color', '#' + data.comp1);
-          $(e.target).css('text-decoration', 'none');
-          // $(e.target).css('font-weight', 'normal');
-        });
-        if (data.twitter) {
-          $('.twitter-quote').text(data.twitter);
-        }
-        if (data.data) {
-          $('.under-content').css('background-color', '#' + data.main);
-          $('.under-content').css('border', '1px solid black');
-
-          new Chartist.Line('.under-content', {
-            labels: ['ex', 'med', 'f'],
-            series: [
-              data.data.ex, data.data.med, data.data.f
-            ]
-          }, {
-            fullWidth: true,
-            high: 10,
-            low: 0,
-            showArea: false,
-            showLine: true,
-            showPoint: false,
-
-            chartPadding: {
-              top: 20,
-              left: -15,
-              right: 15,
-              bottom: 0
-            },
-            axisY: {
-              showLabel: false,
-              showGrid: false
-            },
-            axisX: {
-              showLabel: false,
-              showGrid: false
-            }
-          });
-        }
+    // Colours are applied as CSS custom properties by qs-palette.js; the only
+    // thing left to do here is draw the chart.
+    QSPalette.load(function(data) {
+      if (!data || !data.data) {
+        return;
       }
-    );
+      $('.under-content').addClass('has-chart');
+      new Chartist.Line('.under-content', {
+        labels: ['ex', 'med', 'f'],
+        series: [
+          data.data.ex, data.data.med, data.data.f
+        ]
+      }, {
+        fullWidth: true,
+        high: 10,
+        low: 0,
+        showArea: false,
+        showLine: true,
+        showPoint: false,
+
+        chartPadding: {
+          top: 20,
+          left: -15,
+          right: 15,
+          bottom: 0
+        },
+        axisY: {
+          showLabel: false,
+          showGrid: false
+        },
+        axisX: {
+          showLabel: false,
+          showGrid: false
+        }
+      });
+    });
+
     var showEmail = function() {
       $('#hiddenEmail').html('Gmail: elialbert');
     };

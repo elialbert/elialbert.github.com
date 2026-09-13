@@ -13,3 +13,37 @@
 	"syntax",
     "starsnonscss"
 ;
+
+/* QS palette -----------------------------------------------------------------
+   Written onto :root by /media/qs-palette.js from the two hex strings in
+   qs-data.json. Foregrounds are derived from their own background, so `main`
+   no longer has to be light for the navbar to stay readable.
+   See the vault note projects/qs-colours.md. */
+:root {
+  --qs-page-bg: #ffffff;
+  --qs-main: #ffffff;
+  --qs-comp1: #6610f2;
+  --qs-on-main: #000000;
+  --qs-on-comp1: #ffffff;
+  --qs-link: #6610f2;
+  --qs-link-on-main: #6610f2;
+}
+
+/* .mediumnavigation in screen.css sets a `background` shorthand, and the
+   theme zeroes the border on featured/related cards. The old code won those
+   with inline styles; plain CSS has to match their specificity instead. */
+.navbar.mediumnavigation {
+  background-color: var(--qs-main);
+  color: var(--qs-on-main);
+}
+
+.navbar-light .navbar-brand,
+.navbar-light .navbar-nav .nav-link {
+  color: var(--qs-on-main);
+}
+
+.card,
+.listfeaturedtag .card,
+.listrelated .card {
+  border: 1px solid var(--qs-comp1);
+}
