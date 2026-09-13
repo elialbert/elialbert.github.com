@@ -50,6 +50,13 @@ a {
   color: var(--qs-link);
 }
 
+/* The quote links to Bluesky but should read as text: Bootstrap's a:hover
+   would recolour it blue and underline it. */
+a.twitter-quote:hover {
+  color: var(--qs-link);
+  text-decoration: none;
+}
+
 .background {
 }
 /* CSS columns for true masonry layout */
