@@ -18,15 +18,19 @@
    Written onto :root by /media/qs-palette.js from the two hex strings in
    qs-data.json. Foregrounds are derived from their own background, so `main`
    no longer has to be light for the navbar to stay readable.
+
+   Neutral greys, for the reasons set out over the same block in
+   media/newstyle.css: a first visit sees them, every later one replays the
+   cached palette from the <head> before first paint.
    See the vault note projects/qs-colours.md. */
 :root {
   --qs-page-bg: #ffffff;
-  --qs-main: #ffffff;
-  --qs-comp1: #6610f2;
+  --qs-main: #f4f3f1;
+  --qs-comp1: #6b6b6b;
   --qs-on-main: #000000;
   --qs-on-comp1: #ffffff;
-  --qs-link: #6610f2;
-  --qs-link-on-main: #6610f2;
+  --qs-link: #6b6b6b;
+  --qs-link-on-main: #6b6b6b;
 }
 
 /* .mediumnavigation in screen.css sets a `background` shorthand, and the

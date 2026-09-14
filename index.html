@@ -3,11 +3,33 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- The palette lives on S3. Warm that connection and start the request here,
+       ahead of the stylesheets, so it is in flight for the rest of the parse
+       instead of queueing behind the bundles at the foot of the body. -->
+  <link rel="preconnect" href="https://s3.amazonaws.com" crossorigin>
+  <script src="/media/qs-palette.js"></script>
+
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.2/css/bootstrap.min.css" integrity="sha512-rt/SrQ4UNIaGfDyEXZtNcyWvQeOq0QLygHluFQcSjaGB04IxWhal71tKuzP6K8eYXYB6vJV4pHkXcmFGGQ1/0w==" crossorigin="anonymous" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/chartist/0.11.4/chartist.min.css" integrity="sha256-seGyqLj5T52Hx8W7/YTajtNXGXQf+IksfkcaKGoTkbY=" crossorigin="anonymous" />
-  <title>Eli Albert</title>
-
   <link href="media/newstyle.css" rel="stylesheet">
+
+  <!-- Replay the palette this browser saw last, before first paint. Has to sit
+       after the stylesheets, because it reads --qs-page-bg back out of them,
+       and inline scripts wait for pending stylesheets anyway. -->
+  <script>
+    (function () {
+      try {
+        var root = document.documentElement;
+        var bg = getComputedStyle(root).getPropertyValue('--qs-page-bg').trim();
+        var vars = (JSON.parse(localStorage.getItem('qs-palette-v1')) || {}).vars;
+        var cached = vars && vars[bg];
+        for (var name in cached) root.style.setProperty(name, cached[name]);
+      } catch (e) { /* no storage, no cache: fall through to the defaults */ }
+    })();
+  </script>
+
+  <title>Eli Albert</title>
   <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
 </head>
 
@@ -369,8 +391,6 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.1/umd/popper.min.js" integrity="sha512-ubuT8Z88WxezgSqf3RLuNi5lmjstiJcyezx34yIU2gAHonIi27Na7atqzUZCOoY4CExaoFumzOsFQ2Ch+I/HCw==" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.2/js/bootstrap.min.js" integrity="sha512-7rusk8kGPFynZWu26OKbTeI+QPoYchtxsmPeBqkHIEXJxeun4yJ4ISYe7C6sz9wdxeE1Gk3VxsIWgCZTc+vX3g==" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/chartist/0.11.4/chartist.min.js" integrity="sha256-xNhpuwaNiVdna6L8Wy3GNuQz1z+SCmo4NY1c7cJ9Vdc=" crossorigin="anonymous"></script>
-  
-  <script src="/media/qs-palette.js"></script>
 
   <script>
     // Colours are applied as CSS custom properties by qs-palette.js; the only

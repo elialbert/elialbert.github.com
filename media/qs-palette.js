@@ -99,6 +99,77 @@
     return toHex(best);
   }
 
+  // Cached palette -----------------------------------------------------------
+  //
+  // Reaching qs-data.json costs a DNS lookup, a TLS handshake and a round trip
+  // to S3, and until it lands the page paints with the defaults in the CSS. So
+  // every apply() also writes its *resolved* custom properties to
+  // localStorage, and a few lines inline in each page's <head> replay them
+  // before first paint. Only the first ever visit sees the defaults.
+  //
+  // Entries are keyed by --qs-page-bg: --qs-link is derived from it, and the
+  // two layouts sit on different grounds.
+
+  var CACHE_KEY = 'qs-palette-v1';
+
+  function readCache() {
+    try {
+      return JSON.parse(window.localStorage.getItem(CACHE_KEY)) || {};
+    } catch (e) {
+      return {};  // disabled, full, or private-mode storage: just skip it
+    }
+  }
+
+  function writeCache(pageBgHex, vars, twitter) {
+    try {
+      var cache = readCache();
+      if (!cache.vars) cache.vars = {};
+      cache.vars[pageBgHex] = vars;
+      if (twitter) cache.twitter = twitter;
+      window.localStorage.setItem(CACHE_KEY, JSON.stringify(cache));
+    } catch (e) {
+      /* the fetch still works; the next load just starts from the defaults */
+    }
+  }
+
+  function setVars(vars) {
+    var style = document.documentElement.style;
+    Object.keys(vars).forEach(function (name) {
+      style.setProperty(name, vars[name]);
+    });
+  }
+
+  function setQuote(text) {
+    Array.prototype.forEach.call(
+      document.querySelectorAll('.twitter-quote'),
+      function (el) { el.textContent = text; }
+    );
+  }
+
+  function whenReady(fn) {
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', fn);
+    } else {
+      fn();
+    }
+  }
+
+  // --qs-page-bg is only readable once the page's own stylesheet has landed.
+  // This file is now loaded from <head>, ahead of those stylesheets, so the
+  // fetch can beat them; wait rather than derive the link colours against a
+  // guessed ground.
+  function whenGroundReadable(fn) {
+    var readable = function () {
+      return !!getComputedStyle(document.documentElement)
+        .getPropertyValue('--qs-page-bg').trim();
+    };
+    if (readable() || document.readyState !== 'loading') {
+      fn();
+    } else {
+      document.addEventListener('DOMContentLoaded', fn);
+    }
+  }
+
   function apply(data) {
     var root = document.documentElement;
     var main = parseHex(data && data.main);
@@ -107,46 +178,68 @@
 
     // Each page declares what its own body sits on, so links off a card can be
     // checked against the right ground.
-    var pageBg = parseHex(
-      getComputedStyle(root).getPropertyValue('--qs-page-bg')
-    ) || [255, 255, 255];
+    var pageBgHex = getComputedStyle(root)
+      .getPropertyValue('--qs-page-bg').trim();
+    var pageBg = parseHex(pageBgHex) || [255, 255, 255];
 
     var mainLum = luminance(main);
     var compLum = luminance(comp1);
     var pageLum = luminance(pageBg);
 
-    var set = root.style.setProperty.bind(root.style);
-    set('--qs-main', toHex(main));
-    set('--qs-comp1', toHex(comp1));
-    set('--qs-on-main', bestForeground(mainLum));
-    set('--qs-on-comp1', bestForeground(compLum));
-    set('--qs-link', adjustForContrast(comp1, pageLum, AA));
-    set('--qs-link-on-main', adjustForContrast(comp1, mainLum, AA));
-    // The chart draws three lines on --qs-main. They used to be black, white
-    // and gray, which only worked while `main` was guaranteed light.
-    set('--qs-chart-dim', adjustForContrast([128, 128, 128], mainLum, AA_UI));
+    var vars = {
+      '--qs-main': toHex(main),
+      '--qs-comp1': toHex(comp1),
+      '--qs-on-main': bestForeground(mainLum),
+      '--qs-on-comp1': bestForeground(compLum),
+      '--qs-link': adjustForContrast(comp1, pageLum, AA),
+      '--qs-link-on-main': adjustForContrast(comp1, mainLum, AA),
+      // The chart draws three lines on --qs-main. They used to be black, white
+      // and gray, which only worked while `main` was guaranteed light.
+      '--qs-chart-dim': adjustForContrast([128, 128, 128], mainLum, AA_UI)
+    };
+
+    setVars(vars);
+    // Only cache under a ground we actually read. If the stylesheet had not
+    // landed the fallback above is a guess, and caching it would make the
+    // guess permanent.
+    if (pageBgHex) writeCache(pageBgHex, vars, data.twitter);
     return true;
   }
 
-  // Resolves with the payload (or null) once the properties are on :root, so
-  // callers can go on to draw things that need the rest of the object.
+  // The request goes out the moment this file is parsed, rather than queueing
+  // behind the CDN bundles that used to precede it at the foot of the body.
+  var pending = fetch(SOURCE)
+    .then(function (r) { return r.ok ? r.json() : null; })
+    .catch(function () { return null; })
+    .then(function (data) {
+      if (data) {
+        whenGroundReadable(function () { apply(data); });
+        if (data.twitter) whenReady(function () { setQuote(data.twitter); });
+      }
+      return data;
+    });
+
+  // The quote markup ships empty, so fill it from the cache as soon as there
+  // is a DOM to fill. Registered before the handler above, and skipping any
+  // element that already has text, so a landed fetch is never overwritten.
+  whenReady(function () {
+    var quote = readCache().twitter;
+    if (!quote) return;
+    Array.prototype.forEach.call(
+      document.querySelectorAll('.twitter-quote'),
+      function (el) { if (!el.textContent.trim()) el.textContent = quote; }
+    );
+  });
+
+  // Calls back with the payload (or null) once the properties are on :root and
+  // the DOM is ready, so callers can go on to draw things that need the rest
+  // of the object.
   function load(callback) {
-    var done = function (data) {
-      if (typeof callback === 'function') callback(data);
-    };
-    fetch(SOURCE)
-      .then(function (r) { return r.ok ? r.json() : null; })
-      .then(function (data) {
-        if (data) apply(data);
-        if (data && data.twitter) {
-          Array.prototype.forEach.call(
-            document.querySelectorAll('.twitter-quote'),
-            function (el) { el.textContent = data.twitter; }
-          );
-        }
-        done(data);
-      })
-      .catch(function () { done(null); });
+    pending.then(function (data) {
+      whenReady(function () {
+        if (typeof callback === 'function') callback(data);
+      });
+    });
   }
 
   window.QSPalette = {

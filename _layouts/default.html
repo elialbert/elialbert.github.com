@@ -4,6 +4,11 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
+<!-- The palette lives on S3. Warm that connection and start the request here,
+     ahead of the stylesheets, so it is in flight for the rest of the parse. -->
+<link rel="preconnect" href="https://s3.amazonaws.com" crossorigin>
+<script src="{{ site.baseurl }}/media/qs-palette.js"></script>
+
 <link rel="icon" href="{{ site.baseurl }}/assets/images/favicon.ico">
 
 <title>{{ page.title }} | {{site.name}}</title>
@@ -15,6 +20,20 @@
 <link href="{{ site.baseurl }}/assets/css/screen.css" rel="stylesheet">
 
 <link href="{{ site.baseurl }}/assets/css/main.css" rel="stylesheet">
+
+<!-- Replay the palette this browser saw last, before first paint. Has to sit
+     after the stylesheets, because it reads --qs-page-bg back out of them. -->
+<script>
+  (function () {
+    try {
+      var root = document.documentElement;
+      var bg = getComputedStyle(root).getPropertyValue('--qs-page-bg').trim();
+      var vars = (JSON.parse(localStorage.getItem('qs-palette-v1')) || {}).vars;
+      var cached = vars && vars[bg];
+      for (var name in cached) root.style.setProperty(name, cached[name]);
+    } catch (e) { /* no storage, no cache: fall through to the defaults */ }
+  })();
+</script>
 
 <script src="{{ site.baseurl }}/assets/js/jquery.min.js"></script>
 
@@ -186,7 +205,6 @@
 {% endif %}
 
 <script src="{{ site.baseurl }}/assets/js/ie10-viewport-bug-workaround.js"></script> 
-<script src="{{ site.baseurl }}/media/qs-palette.js"></script>
 <script>
   // Colours arrive as CSS custom properties on :root; the rules that use them
   // live in assets/css/main.scss.

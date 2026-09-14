@@ -2,16 +2,22 @@
    `main` and `comp1` arrive from qs-data.json and are written onto :root by
    /media/qs-palette.js. Every foreground below is derived from its own
    background, so neither colour has to be light or dark for the page to stay
-   legible. The defaults reproduce the pre-fetch appearance.
+   legible.
+
+   These defaults are only ever seen on a first visit — after that the <head>
+   replays the cached palette before first paint. They are deliberately neutral
+   greys rather than a plausible-looking palette: whatever `comp1` turns out to
+   be, settling onto it from grey reads as the page finishing, where settling
+   onto it from some other saturated hue read as a fault.
    See the vault note projects/qs-colours.md. */
 :root {
   --qs-page-bg: #efefef;        /* what .tab-content is, for link contrast */
-  --qs-main: #ffffff;           /* card / chart-panel background */
-  --qs-comp1: #6610f2;          /* accent: buttons, pills, borders */
+  --qs-main: #f4f3f1;           /* card / chart-panel background */
+  --qs-comp1: #6b6b6b;          /* accent: buttons, pills, borders */
   --qs-on-main: #000000;        /* text on --qs-main */
   --qs-on-comp1: #ffffff;       /* text on --qs-comp1 */
-  --qs-link: #6610f2;           /* accent made legible on --qs-page-bg */
-  --qs-link-on-main: #6610f2;   /* accent made legible on --qs-main */
+  --qs-link: #6b6b6b;           /* accent made legible on --qs-page-bg */
+  --qs-link-on-main: #6b6b6b;   /* accent made legible on --qs-main */
   --qs-chart-dim: #808080;      /* third chart line, >=3:1 on --qs-main */
 }
 
