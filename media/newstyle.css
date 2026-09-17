@@ -13,7 +13,7 @@
 :root {
   --qs-page-bg: #efefef;        /* what .tab-content is, for link contrast */
   --qs-main: #f4f3f1;           /* card / chart-panel background */
-  --qs-comp1: #6b6b6b;          /* accent: buttons, pills, borders */
+  --qs-comp1: #6b6b6b;          /* accent: buttons and pills */
   --qs-on-main: #000000;        /* text on --qs-main */
   --qs-on-comp1: #ffffff;       /* text on --qs-comp1 */
   --qs-link: #6b6b6b;           /* accent made legible on --qs-page-bg */
@@ -132,7 +132,7 @@ a.twitter-quote:hover {
   height: auto;
   background-color: var(--qs-main);
   color: var(--qs-on-main);
-  border-color: var(--qs-comp1);
+  border: 0;
 }
 
 /* Links sitting on a card are on --qs-main, not on the page background. */
