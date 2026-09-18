@@ -344,8 +344,20 @@ a.qs-osmr-title:hover {
 }
 
 /* The gauges, on Profiles -----------------------------------------------------
-   Instrument faces on the band: the plate is --qs-main, so everything drawn on
-   it derives from --qs-main exactly as the chart's lines do. */
+   Instrument faces on the band. The plate used to be --qs-main, which worked
+   while the band was the accent and stopped working the moment the band went
+   quiet: a face the same colour as the thing behind it. Putting the accent on
+   the plate instead fixed that and cost too much — four saturated discs is
+   more accent than the whole band was.
+
+   So the plate is white and stays white. It is the one thing on the site
+   outside the palette, deliberately: an instrument face is white with black
+   markings, that is what makes it read as an instrument at all, and a fixed
+   ground has to have fixed marks on it or the pair comes apart on a dark
+   night. The palette's only say here is the danger arc and the rim.
+
+   That leaves --qs-accent-on-comp1 and --qs-dim-on-comp1 with no consumers
+   again — see the note in media/qs-palette.js. */
 .qs-gauges {
   display: flex;
   flex-wrap: wrap;
@@ -366,26 +378,30 @@ a.qs-osmr-title:hover {
 }
 
 .qs-gauge-plate {
-  fill: var(--qs-main);
+  fill: #ffffff;
+  /* The rim is what holds a white plate off a light band; on a dark night the
+     plate separates itself and this is barely seen. */
   stroke: var(--qs-chart-dim);
   stroke-width: 1;
 }
 
 .qs-gauge-arc {
   fill: none;
-  stroke: var(--qs-on-main);
+  stroke: #000000;
   stroke-width: 0.8;
 }
 
-/* The top of the scale, in the accent made legible on the plate. */
+/* The top of the scale, and the one place the day's colour reaches the dial.
+   The accent clears 3:1 against the page ground by construction, and a white
+   plate is lighter still, so it is legible here on any night. */
 .qs-gauge-danger {
   fill: none;
-  stroke: var(--qs-link-on-main);
+  stroke: var(--qs-comp1);
   stroke-width: 2.6;
 }
 
 .qs-gauge-tick {
-  stroke: var(--qs-on-main);
+  stroke: #000000;
   stroke-width: 0.7;
   opacity: 0.55;
 }
@@ -396,14 +412,14 @@ a.qs-osmr-title:hover {
 }
 
 .qs-gauge-num {
-  fill: var(--qs-on-main);
+  fill: #000000;
   font-size: 6.5px;
   text-anchor: middle;
   opacity: 0.8;
 }
 
 .qs-gauge-needle {
-  fill: var(--qs-on-main);
+  fill: #000000;
 }
 
 /* The sweep up from rest is added a frame after the band opens, so it actually
@@ -435,17 +451,30 @@ a.qs-osmr-title:hover {
 }
 
 /* The scene ------------------------------------------------------------------
-   The twelve-words-or-fewer image the night's two colours were taken off, sat
-   just above the chart they were taken for. No panel and no label: it is a
-   caption for the whole page rather than a section of it, and --qs-link is the
-   accent made legible on the page ground — the sentence that produced the
-   palette, rendered in it.
+   The twelve-words-or-fewer image the night's two colours were taken off, at
+   the foot of the page in parentheses. No panel and no label: it is a caption
+   for the whole page rather than a section of it, and --qs-link is the accent
+   made legible on the page ground — the sentence that produced the palette,
+   rendered in it.
 
    Empty on a fallback night, and hidden rather than stale when it is: the other
    prose stays true when it ages, but a scene describing colours that are not on
    screen does not. */
 .qs-scene[hidden] {
   display: none;
+}
+
+/* Parenthesised, which is the tone of the thing: an aside at the foot of the
+   page rather than a caption announcing itself. The brackets are pseudo-
+   elements because renderScene() writes el.textContent and would wipe any
+   literal ones out of the markup; this way they also vanish with the line on a
+   fallback night, instead of leaving an empty "()" behind. */
+.qs-scene::before {
+  content: "(";
+}
+
+.qs-scene::after {
+  content: ")";
 }
 
 .qs-scene {
