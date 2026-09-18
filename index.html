@@ -10,6 +10,7 @@
   <link rel="preconnect" href="https://s3.amazonaws.com" crossorigin>
   <script src="/media/qs-palette.js"></script>
   <script src="/media/qs-headers.js"></script>
+  <script src="/media/qs-sun.js"></script>
 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.2/css/bootstrap.min.css" integrity="sha512-rt/SrQ4UNIaGfDyEXZtNcyWvQeOq0QLygHluFQcSjaGB04IxWhal71tKuzP6K8eYXYB6vJV4pHkXcmFGGQ1/0w==" crossorigin="anonymous" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/chartist/0.11.4/chartist.min.css" integrity="sha256-seGyqLj5T52Hx8W7/YTajtNXGXQf+IksfkcaKGoTkbY=" crossorigin="anonymous" />
@@ -23,7 +24,7 @@
       try {
         var root = document.documentElement;
         var bg = getComputedStyle(root).getPropertyValue('--qs-page-bg').trim();
-        var vars = (JSON.parse(localStorage.getItem('qs-palette-v2')) || {}).vars;
+        var vars = (JSON.parse(localStorage.getItem('qs-palette-v3')) || {}).vars;
         var cached = vars && vars[bg];
         for (var name in cached) root.style.setProperty(name, cached[name]);
       } catch (e) { /* no storage, no cache: fall through to the defaults */ }
@@ -428,7 +429,6 @@
       if (!data || !data.data) {
         return;
       }
-      $('.under-content').addClass('has-chart');
       new Chartist.Line('.under-content', {
         labels: ['ex', 'med', 'f'],
         series: [
@@ -442,13 +442,23 @@
         showLine: true,
         showPoint: false,
 
+        // The chart fills its box edge to edge. Chartist reserves axisY.offset
+        // (40 by default) down the left for value labels and chartPadding on
+        // top of that, which with the labels switched off is 40px of nothing
+        // between the line and the border it is drawn inside. Zero the offset
+        // rather than cancelling it with a negative padding, which is what used
+        // to be here and left the two ends 26px and 16px in.
+        //
+        // axisX.offset is left alone: the 30px it holds at the bottom is under
+        // the line, not beside it.
         chartPadding: {
           top: 20,
-          left: -15,
-          right: 15,
+          left: 0,
+          right: 0,
           bottom: 0
         },
         axisY: {
+          offset: 0,
           showLabel: false,
           showGrid: false
         },

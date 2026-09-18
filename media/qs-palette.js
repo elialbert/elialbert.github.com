@@ -15,6 +15,12 @@
  * longer does: any pair renders legibly here, so the palette is free to spend
  * lightness on something other than legibility.
  *
+ * Free of legibility, but not of structure. Since 2026-09-18 the two colours
+ * are refit before anything is derived from them: the hues are the day's, the
+ * lightnesses are the page's. A pair sampled off one photograph shares that
+ * photograph's light, and `main` and `comp1` are surfaces at different depths
+ * here — see refitSurface() for the night that made this necessary.
+ *
  * See the vault note projects/qs-colours.md.
  */
 (function (window, document) {
@@ -23,6 +29,25 @@
   var SOURCE = 'https://s3.amazonaws.com/qs-storage/qs-data.json';
   var AA = 4.5;  // WCAG AA for body text
   var AA_UI = 3;  // WCAG AA for non-text (the chart lines)
+
+  // Where a surface and an accent are allowed to sit. See refitSurface().
+  var SURFACE_L_LIGHT = 0.91;     // a light card, whatever its hue
+  var SURFACE_L_DARK = 0.16;      // ...or a dark one; never the middle
+  var SURFACE_L_SPLIT = 0.35;     // ...and which one. Deliberately not 0.5:
+  var SURFACE_S_MAX_LIGHT = 0.32; // a card is big: this is a tint, not a wash
+  var SURFACE_S_MAX_DARK = 0.35;
+  var SURFACE_S_MIN = 0.22;       // ...but a tint has to be visible as one
+  var SURFACE_S_NEUTRAL = 0.02;   // below this the model meant grey
+  // ...the split is low because the model's own favourite output sits right at
+  // the middle of the range. The four real pairs on record came in at HSL
+  // lightness 0.48, 0.56, 0.59 and 0.69 — a boundary at 0.5 runs straight
+  // through the cluster, and 0.48 against 0.52 (two indistinguishable
+  // grey-greens) would be the difference between a near-white page and a
+  // near-black one. At 0.35 a mid-tone is a light card, which is what a quiet
+  // scene should be, and only a scene that is genuinely dark — the near-black
+  // navy the 2026-09-13 prompt started producing on big days — takes the page
+  // dark with it. The boundary still exists; it is just somewhere the colours
+  // rarely land.
 
   function parseHex(s) {
     if (typeof s !== 'string') return null;
@@ -36,6 +61,14 @@
     return '#' + rgb.map(function (c) {
       return ('0' + Math.round(c).toString(16)).slice(-2);
     }).join('');
+  }
+
+  // The 8-bit colour a float triple will actually become. A ratio measured on
+  // the float and then rounded for output can land just under the target it
+  // was picked for — 2.99:1 where 3 was asked — so the searches below measure
+  // what they are going to return.
+  function snap(rgb) {
+    return parseHex(toHex(rgb));
   }
 
   // WCAG relative luminance.
@@ -86,6 +119,85 @@
     return [(t[0] + m) * 255, (t[1] + m) * 255, (t[2] + m) * 255];
   }
 
+  // The value refit ----------------------------------------------------------
+  //
+  // 2026-09-18. The exporter takes its two colours off one photographed scene,
+  // and a photograph lights both of them the same way: "rain-streaked
+  // windowpane reflecting a dim grey suburban sky at dusk" came back as a dim
+  // sky (#8A9196) and a dim gold (#C9A227), 1.32:1 apart. Fine pair of hues,
+  // unusable pair of values -- `main` is every card and chart panel on this
+  // site and `comp1` is the band and the buttons that sit ON those cards, so
+  // the two are surfaces at different depths and have to differ in lightness.
+  // The photograph couples exactly what the page needs decoupled, and it will
+  // do it again on every dusk, overcast and interior scene in the exporter's
+  // lens list. Nothing in the prompt can reliably fix that: asking a model to
+  // place lightness is what the 2026-09-13 rewrite already found it bad at.
+  //
+  // So the hues and the scene stay the model's, and the values stop being. The
+  // surface goes to one end of the range or the other (SURFACE_L_SPLIT says
+  // which, and why it is not the midpoint) -- a near-black navy card is as
+  // welcome as a bone-white one, and both ends of
+  // the gamut the 2026-09-13 prompt opened up survive this; it is only the
+  // middle, where a card stops reading as a card, that is evicted.
+
+  function refitSurface(rgb) {
+    var hsl = rgbToHsl(rgb);
+    var light = hsl[2] >= SURFACE_L_SPLIT;
+    hsl[2] = light ? SURFACE_L_LIGHT : SURFACE_L_DARK;
+    // Chroma goes one way or the other. A 5%-saturated grey reads as a failing
+    // monitor rather than as a choice, so an achromatic colour is made exactly
+    // achromatic and anything with a hue at all is tinted far enough to look
+    // deliberate -- the floor is what keeps the day's colour visible in the
+    // largest area on screen instead of collapsing every quiet scene to the
+    // same white card. It is the tuned number of the four, and it was tuned by
+    // rendering the band: below about 0.18 a warm hue at this lightness is
+    // indistinguishable from the page ground, which is the collapse, and above
+    // about 0.34 a green or a violet starts to look ill rather than tinted.
+    // The ceiling is the other half of the same thought: a surface is big, and
+    // a saturation that was one spot of colour in a photograph is a
+    // highlighter at the size of a panel.
+    if (hsl[1] > SURFACE_S_NEUTRAL) {
+      hsl[1] = Math.min(Math.max(hsl[1], SURFACE_S_MIN),
+                        light ? SURFACE_S_MAX_LIGHT : SURFACE_S_MAX_DARK);
+    } else {
+      hsl[1] = 0;
+    }
+    return hslToRgb(hsl);
+  }
+
+  // The accent then has TWO grounds to clear, because it is a button on a card
+  // and a band on the page: the card it sits on, and the page around the card.
+  // adjustForContrast solves for one ground and walks away from it; with two
+  // the answer can lie on either side, so this searches outwards in lightness
+  // from wherever the model put it and takes the nearest value that clears
+  // both. Hue and saturation are untouched -- it is still the colour the scene
+  // gave, at the only lightness the page has room for. If no lightness clears
+  // both (a narrow gap between a mid-tone ground and its card), the best
+  // near-miss is kept rather than the original: closer is better than nothing,
+  // and the foregrounds derived below are checked against whatever comes back.
+  function fitAccent(rgb, lumA, lumB, target) {
+    var hsl = rgbToHsl(rgb);
+    var l0 = hsl[2];
+    var score = function (c) {
+      var l = luminance(c);
+      return Math.min(contrast(l, lumA), contrast(l, lumB));
+    };
+    var best = rgb, bestScore = score(rgb);
+    if (bestScore >= target) return rgb;
+    for (var i = 1; i <= 100; i++) {
+      for (var d = 0; d < 2; d++) {
+        var l = l0 + (d ? -i : i) / 100;
+        if (l < 0 || l > 1) continue;
+        hsl[2] = l;
+        var cand = snap(hslToRgb(hsl));
+        var s = score(cand);
+        if (s >= target) return cand;
+        if (s > bestScore) { bestScore = s; best = cand; }
+      }
+    }
+    return best;
+  }
+
   // Keep the accent's hue and saturation, walk its lightness away from the
   // background until it clears `target`. At the end of the ramp this lands on
   // black or white, which is the most contrast that hue can give.
@@ -96,7 +208,7 @@
     var best = rgb, bestRatio = contrast(luminance(rgb), bgLum);
     for (var i = 0; i < 60; i++) {
       hsl[2] = Math.min(1, Math.max(0, hsl[2] + step));
-      var cand = hslToRgb(hsl);
+      var cand = snap(hslToRgb(hsl));
       var ratio = contrast(luminance(cand), bgLum);
       if (ratio > bestRatio) { bestRatio = ratio; best = cand; }
       if (ratio >= target) return toHex(cand);
@@ -120,7 +232,13 @@
   // entry has neither, and replaying one would paint the header band with
   // foregrounds that were never checked against it, so the key is bumped
   // rather than migrated — one first-visit paint, once, per browser.
-  var CACHE_KEY = 'qs-palette-v2';
+  //
+  // v3: the same reasoning for the value refit. A v2 entry holds the colours
+  // as the model sent them, and replaying one would paint the un-refit palette
+  // before the fetch lands and then correct it — the flash this cache exists
+  // to prevent. The inline replay in index.html and _layouts/default.html
+  // reads this key by name; all three move together.
+  var CACHE_KEY = 'qs-palette-v3';
 
   function readCache() {
     try {
@@ -204,17 +322,23 @@
       .getPropertyValue('--qs-page-bg').trim();
     var pageBg = parseHex(pageBgHex) || [255, 255, 255];
 
-    var mainLum = luminance(main);
-    var compLum = luminance(comp1);
     var pageLum = luminance(pageBg);
 
+    // What the site wears is not quite what the day said. The hues are the
+    // model's; the values are the page's. See refitSurface().
+    var surface = refitSurface(main);
+    var accent = fitAccent(comp1, luminance(surface), pageLum, AA_UI);
+
+    var mainLum = luminance(surface);
+    var compLum = luminance(accent);
+
     var vars = {
-      '--qs-main': toHex(main),
-      '--qs-comp1': toHex(comp1),
+      '--qs-main': toHex(surface),
+      '--qs-comp1': toHex(accent),
       '--qs-on-main': bestForeground(mainLum),
       '--qs-on-comp1': bestForeground(compLum),
-      '--qs-link': adjustForContrast(comp1, pageLum, AA),
-      '--qs-link-on-main': adjustForContrast(comp1, mainLum, AA),
+      '--qs-link': adjustForContrast(accent, pageLum, AA),
+      '--qs-link-on-main': adjustForContrast(accent, mainLum, AA),
       // The chart draws three lines on --qs-main. They used to be black, white
       // and gray, which only worked while `main` was guaranteed light.
       '--qs-chart-dim': adjustForContrast([128, 128, 128], mainLum, AA_UI),
@@ -222,7 +346,7 @@
       // rather than on `main`, so `comp1` is a background here as well as an
       // accent, and needs the same two derivations against it that `main` and
       // the page ground already get.
-      '--qs-accent-on-comp1': adjustForContrast(main, compLum, AA),
+      '--qs-accent-on-comp1': adjustForContrast(surface, compLum, AA),
       '--qs-dim-on-comp1': adjustForContrast([128, 128, 128], compLum, AA_UI)
     };
 
@@ -278,6 +402,8 @@
     contrast: contrast,
     bestForeground: bestForeground,
     adjustForContrast: adjustForContrast,
+    refitSurface: refitSurface,
+    fitAccent: fitAccent,
     parseHex: parseHex,
     toHex: toHex
   };

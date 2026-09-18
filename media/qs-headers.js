@@ -260,4 +260,19 @@
   pendingHome.then(function (home) {
     whenReady(function () { renderGauges(home); });
   });
+
+  // The hourly object, handed on to anything else that wants it, so the sun
+  // behind the masthead (media/qs-sun.js) rides along on this fetch instead of
+  // making a second one for the same object. Same contract as QSPalette.load:
+  // the callback runs once, with the payload or null, and never before there
+  // is a DOM to draw into.
+  window.QSHome = {
+    load: function (callback) {
+      pendingHome.then(function (home) {
+        whenReady(function () {
+          if (typeof callback === 'function') callback(home);
+        });
+      });
+    }
+  };
 })(window, document);

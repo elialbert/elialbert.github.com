@@ -71,9 +71,21 @@ body.background {
 
 /* The masthead keeps the white the page opens on. It is full-bleed and the
    nav's own container sits inside it, so the white spans the window while the
-   pills stay aligned with everything below them. */
+   pills stay aligned with everything below them.
+
+   It is also the sky: /media/qs-sun.js inserts an absolutely positioned SVG as
+   its first child, so the masthead has to be the positioning context, and the
+   container has to be lifted off it so the title and the pills sit in front of
+   the sun rather than behind it. */
 .masthead {
   background-color: #ffffff;
+  position: relative;
+  overflow: hidden;
+}
+
+.masthead > .container {
+  position: relative;
+  z-index: 1;
 }
 /* CSS columns for true masonry layout */
 .card-grid {
@@ -186,10 +198,6 @@ body.background {
   background-color: var(--qs-main);
 }
 
-.under-content.has-chart {
-  border: 1px solid var(--qs-chart-dim);
-}
-
 /* All three lines are drawn on --qs-main, so all three are derived from it. */
 .ct-series-a .ct-line {
   stroke: var(--qs-on-main);
@@ -211,11 +219,16 @@ body.background {
 /* Page headers ---------------------------------------------------------------
    A full-width band at the top of each tab, drawn by /media/qs-headers.js.
 
-   These are the only thing on the site that sits on --qs-comp1: every other
-   surface — cards, the chart panel — sits on --qs-main, and the accent is
-   reserved for buttons and pills on top of it. Inverting that pair is what
-   makes a band read as a different kind of object without inventing a third
-   colour, and it costs nothing to the palette, which still ships two hexes.
+   Until 2026-09-18 these were the only thing on the site that sat ON
+   --qs-comp1, inverting the pair to make a band read as a different kind of
+   object. At a full-bleed band's size that was simply too much accent at the
+   top of every tab, so the inversion is now smaller than the band: the ground
+   is --qs-main like every other surface, and what carries the day's colour is
+   the TEXT, in --qs-link-on-main — the accent already walked to AA against
+   this exact ground. A band is still a different kind of object because it is
+   full-bleed where the cards are inset, and it still costs the palette
+   nothing: two hexes, no third colour, and the accent stays a fill on the
+   buttons, the pills and the review's tag.
 
    Each band ships hidden and is opened by the script once it has content, so
    a field that came back null is a band that never appears rather than an
@@ -225,9 +238,9 @@ body.background {
 }
 
 .qs-head {
-  background-color: var(--qs-comp1);
-  color: var(--qs-on-comp1);
-  padding: 24px 0;
+  background-color: var(--qs-main);
+  color: var(--qs-link-on-main);
+  padding: 16px 0;
 }
 
 .tab-pane > .container {
@@ -246,8 +259,8 @@ body.background {
   font-size: 0.72rem;
   letter-spacing: 0.18em;
   text-transform: uppercase;
-  color: var(--qs-accent-on-comp1);
-  margin-bottom: 10px;
+  color: var(--qs-chart-dim);
+  margin-bottom: 7px;
 }
 
 /* Links on a band are on --qs-comp1, not on the page background and not on a
@@ -255,7 +268,7 @@ body.background {
    There is no third derivation for it: text on the band is --qs-on-comp1, and
    an underline is what carries the linkness. */
 .qs-head a {
-  color: var(--qs-on-comp1);
+  color: var(--qs-link-on-main);
 }
 
 /* Both bands are a musing — the latest one on Projects, an older one on Paid —
@@ -273,7 +286,7 @@ body.background {
    band's own foreground rather than take Bootstrap's link colour. */
 a.qs-musing,
 a.qs-musing:hover {
-  color: var(--qs-on-comp1);
+  color: var(--qs-link-on-main);
   text-decoration: none;
 }
 
@@ -290,15 +303,17 @@ a.qs-musing:hover {
 
 a.qs-osmr-title,
 a.qs-osmr-title:hover {
-  color: var(--qs-on-comp1);
+  color: var(--qs-link-on-main);
   text-decoration: underline;
 }
 
-/* A filing label: the card ground, borrowed onto the band. */
+/* A filing label: the accent, borrowed onto the band. It inverted when the
+   band did — it is the one thing here that still wants to be a coloured
+   object rather than coloured text. */
 .qs-osmr-tag {
   display: inline-block;
-  background-color: var(--qs-main);
-  color: var(--qs-on-main);
+  background-color: var(--qs-comp1);
+  color: var(--qs-on-comp1);
   font-size: 0.66rem;
   letter-spacing: 0.1em;
   text-transform: uppercase;
@@ -324,11 +339,11 @@ a.qs-osmr-title:hover {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 14px 26px;
+  gap: 10px 22px;
 }
 
 .qs-gauge {
-  width: 132px;
+  width: 112px;
   margin: 0;
   text-align: center;
 }
@@ -341,7 +356,7 @@ a.qs-osmr-title:hover {
 
 .qs-gauge-plate {
   fill: var(--qs-main);
-  stroke: var(--qs-dim-on-comp1);
+  stroke: var(--qs-chart-dim);
   stroke-width: 1;
 }
 
@@ -401,11 +416,11 @@ a.qs-osmr-title:hover {
 
 .qs-gauge-name {
   display: block;
-  margin-top: 8px;
+  margin-top: 5px;
   font-size: 0.68rem;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: var(--qs-accent-on-comp1);
+  color: var(--qs-chart-dim);
 }
 
 /* The scene ------------------------------------------------------------------
@@ -429,4 +444,71 @@ a.qs-osmr-title:hover {
   font-size: 0.95rem;
   line-height: 1.5;
   color: var(--qs-link);
+}
+
+
+/* The sun --------------------------------------------------------------------
+   Today's solar production, drawn behind the title by /media/qs-sun.js: a
+   ribbon along the sun's own arc whose thickness is the roof's output hour by
+   hour, rays down from the hours that cleared the floor, and the disc itself at
+   the current time in Chicago. The script's own header comment has the rest.
+
+   Two colours, one warm pair: the gold is midday and the rosier one is both
+   ends of the day, which is the only thing here that is decoration rather than
+   reading. They are deliberately NOT derived from the nightly palette — the sun
+   is the sun whatever colour the day picked, and this sits on the masthead's
+   fixed white rather than on --qs-main or --qs-comp1, so nothing about it needs
+   to move when the palette does.
+
+   Everything is pale on purpose. The site title sits directly on top of it, so
+   the strongest thing here is the disc at 0.34 alpha over white — about
+   #fbe2b8, which still clears AA against the title's black by a wide margin.
+   Raising these is a contrast change, not a taste change. */
+:root {
+  --qs-sun-core: #f7b733;   /* midday gold */
+  --qs-sun-edge: #e8836a;   /* dawn and dusk, rosier */
+}
+
+.qs-sun {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  pointer-events: none;  /* the pills are underneath it in the stacking order */
+}
+
+.qs-sun-stop-core {
+  stop-color: var(--qs-sun-core);
+}
+
+.qs-sun-stop-edge {
+  stop-color: var(--qs-sun-edge);
+}
+
+.qs-sun-ribbon {
+  fill: url(#qs-sun-ribbon-fill);
+  opacity: 0.3;
+}
+
+/* Blurred as a group rather than one beam at a time: the wedges are cut with
+   hard edges and overlap each other, and softening the whole comb at once is
+   what turns a row of triangles into light. */
+.qs-sun-rays {
+  filter: blur(1.8px);
+}
+
+.qs-sun-ray {
+  fill: url(#qs-sun-ray-fill);
+}
+
+.qs-sun-halo {
+  fill: url(#qs-sun-halo-fill);
+  opacity: 0.5;
+}
+
+.qs-sun-core {
+  fill: var(--qs-sun-core);
+  opacity: 0.34;
 }
