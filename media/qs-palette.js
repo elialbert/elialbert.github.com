@@ -38,6 +38,8 @@
   var SURFACE_S_MAX_DARK = 0.35;
   var SURFACE_S_MIN = 0.22;       // ...but a tint has to be visible as one
   var SURFACE_S_NEUTRAL = 0.02;   // below this the model meant grey
+  var EDGE = 1.35;                // a hairline: seen, but not a rule
+  var EDGE_CLEAR = 1.5;           // above this the fill separates on its own
   // ...the split is low because the model's own favourite output sits right at
   // the middle of the range. The four real pairs on record came in at HSL
   // lightness 0.48, 0.56, 0.59 and 0.69 — a boundary at 0.5 runs straight
@@ -238,7 +240,11 @@
   // before the fetch lands and then correct it — the flash this cache exists
   // to prevent. The inline replay in index.html and _layouts/default.html
   // reads this key by name; all three move together.
-  var CACHE_KEY = 'qs-palette-v3';
+  //
+  // v4: --qs-edge joins them. A v3 entry has no edge, and the border that
+  // reads it would fall back to currentColor — a dark rule around every card —
+  // so this one is not merely stale, it is wrong.
+  var CACHE_KEY = 'qs-palette-v4';
 
   function readCache() {
     try {
@@ -332,6 +338,29 @@
     var mainLum = luminance(surface);
     var compLum = luminance(accent);
 
+    // The card's edge ------------------------------------------------------
+    //
+    // 2026-09-18, after the refit shipped. A light card cannot separate itself
+    // from a light page by fill. --qs-page-bg is a fixed #efefef (luminance
+    // 0.86) that refitSurface() never consults, and consulting it would not
+    // help much: against that ground a light card tops out at 1.15:1 at pure
+    // white, and L 0.93 lands on the page's own luminance exactly. There is no
+    // good lightness to choose, so the boundary is drawn instead of filled.
+    //
+    // This was always true -- the CSS default card is 1.04:1 against the page
+    // — and it was hidden only because the model kept sending mid-tone cards
+    // that stood clear of the page by accident. That accident and the mud the
+    // refit removed were the same fact, so removing one exposed the other.
+    //
+    // The edge keeps the card's hue and walks its lightness away from the PAGE
+    // until it reads as a hairline. A card that already stands clear of the
+    // page gets no edge at all -- the var is simply the card, and the border
+    // disappears into it -- which is what a dark card on a light page wants,
+    // and is why this cannot be a fixed rgba black: that would vanish there.
+    var edge = contrast(mainLum, pageLum) < EDGE_CLEAR
+      ? adjustForContrast(surface, pageLum, EDGE)
+      : toHex(surface);
+
     var vars = {
       '--qs-main': toHex(surface),
       '--qs-comp1': toHex(accent),
@@ -342,6 +371,8 @@
       // The chart draws three lines on --qs-main. They used to be black, white
       // and gray, which only worked while `main` was guaranteed light.
       '--qs-chart-dim': adjustForContrast([128, 128, 128], mainLum, AA_UI),
+      // Drawn where a surface on --qs-main meets the page: see above.
+      '--qs-edge': edge,
       // The header bands are the one thing on the site that sits on `comp1`
       // rather than on `main`, so `comp1` is a background here as well as an
       // accent, and needs the same two derivations against it that `main` and

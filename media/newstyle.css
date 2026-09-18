@@ -21,6 +21,7 @@
   --qs-chart-dim: #808080;      /* third chart line, >=3:1 on --qs-main */
   --qs-accent-on-comp1: #ffffff; /* --qs-main made legible on --qs-comp1 */
   --qs-dim-on-comp1: #c8c8c8;   /* header hairlines, >=3:1 on --qs-comp1 */
+  --qs-edge: #e2e1de;           /* where --qs-main meets --qs-page-bg */
 }
 
 .padding-top {
@@ -147,6 +148,12 @@ body.background {
   width: 100%;
 }
 
+/* A card is --qs-main on --qs-page-bg, and on a light day those two are
+   within 1.05:1 of each other — the fill cannot draw the boundary, so the
+   border does. --qs-edge is the card's own hue walked away from the PAGE
+   until it reads as a hairline, and on a day the card stands clear of the
+   page by itself the var IS the card and this border disappears. See the
+   derivation in media/qs-palette.js. */
 .card {
   width: 100%;
   display: flex;
@@ -154,7 +161,7 @@ body.background {
   height: auto;
   background-color: var(--qs-main);
   color: var(--qs-on-main);
-  border: 0;
+  border: 1px solid var(--qs-edge);
 }
 
 /* Links sitting on a card are on --qs-main, not on the page background. */
@@ -196,6 +203,7 @@ body.background {
 .under-content {
   height: 120px;
   background-color: var(--qs-main);
+  border-top: 1px solid var(--qs-edge);
 }
 
 /* All three lines are drawn on --qs-main, so all three are derived from it. */
@@ -241,6 +249,9 @@ body.background {
   background-color: var(--qs-main);
   color: var(--qs-link-on-main);
   padding: 16px 0;
+  /* Full-bleed, so only the two horizontal boundaries exist to be drawn. */
+  border-top: 1px solid var(--qs-edge);
+  border-bottom: 1px solid var(--qs-edge);
 }
 
 .tab-pane > .container {
