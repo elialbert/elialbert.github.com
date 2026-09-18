@@ -4,6 +4,12 @@
  * into CSS custom properties and derives every foreground from the background
  * it actually sits on.
  *
+ * Since 2026-09-18 the object also carries `scene` — the twelve-words-or-fewer
+ * image the colour call took those two off, or `""` on a fallback night. It
+ * reaches callers untouched through QSPalette.load() along with `twitter`,
+ * `lookback` and `osmr`; media/qs-headers.js draws the three into a band at the
+ * top of each tab, and the scene into a line above the chart.
+ *
  * The site used to hardcode black text on `main` and white text on `comp1`,
  * which is what forced the exporter to hand over a light/dark pair. It no
  * longer does: any pair renders legibly here, so the palette is free to spend
@@ -110,7 +116,11 @@
   // Entries are keyed by --qs-page-bg: --qs-link is derived from it, and the
   // two layouts sit on different grounds.
 
-  var CACHE_KEY = 'qs-palette-v1';
+  // v2: two more derived vars, and the nightly prose next to the colours. A v1
+  // entry has neither, and replaying one would paint the header band with
+  // foregrounds that were never checked against it, so the key is bumped
+  // rather than migrated — one first-visit paint, once, per browser.
+  var CACHE_KEY = 'qs-palette-v2';
 
   function readCache() {
     try {
@@ -120,12 +130,24 @@
     }
   }
 
-  function writeCache(pageBgHex, vars, twitter) {
+  // The nightly object's prose is cached beside the colours for exactly the
+  // reason the colours are: the bands ship empty, and without this they would
+  // pop in a round trip after first paint. Field by field, and on `!= null`
+  // rather than on truthiness: a field that came back null leaves the last good
+  // one up — the previous newest review is still the newest review — but the
+  // scene's empty string is a real answer (a fallback night) and has to be able
+  // to replace a scene that no longer describes what is on screen.
+  // The HOURLY object is deliberately not cached; see media/qs-headers.js.
+  var PROSE = ['twitter', 'lookback', 'osmr', 'scene'];
+
+  function writeCache(pageBgHex, vars, data) {
     try {
       var cache = readCache();
       if (!cache.vars) cache.vars = {};
       cache.vars[pageBgHex] = vars;
-      if (twitter) cache.twitter = twitter;
+      PROSE.forEach(function (key) {
+        if (data && data[key] != null) cache[key] = data[key];
+      });
       window.localStorage.setItem(CACHE_KEY, JSON.stringify(cache));
     } catch (e) {
       /* the fetch still works; the next load just starts from the defaults */
@@ -195,14 +217,20 @@
       '--qs-link-on-main': adjustForContrast(comp1, mainLum, AA),
       // The chart draws three lines on --qs-main. They used to be black, white
       // and gray, which only worked while `main` was guaranteed light.
-      '--qs-chart-dim': adjustForContrast([128, 128, 128], mainLum, AA_UI)
+      '--qs-chart-dim': adjustForContrast([128, 128, 128], mainLum, AA_UI),
+      // The header bands are the one thing on the site that sits on `comp1`
+      // rather than on `main`, so `comp1` is a background here as well as an
+      // accent, and needs the same two derivations against it that `main` and
+      // the page ground already get.
+      '--qs-accent-on-comp1': adjustForContrast(main, compLum, AA),
+      '--qs-dim-on-comp1': adjustForContrast([128, 128, 128], compLum, AA_UI)
     };
 
     setVars(vars);
     // Only cache under a ground we actually read. If the stylesheet had not
     // landed the fallback above is a guess, and caching it would make the
     // guess permanent.
-    if (pageBgHex) writeCache(pageBgHex, vars, data.twitter);
+    if (pageBgHex) writeCache(pageBgHex, vars, data);
     return true;
   }
 
@@ -244,6 +272,7 @@
 
   window.QSPalette = {
     load: load,
+    cached: readCache,
     apply: apply,
     luminance: luminance,
     contrast: contrast,

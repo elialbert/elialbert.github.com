@@ -28,7 +28,7 @@
     try {
       var root = document.documentElement;
       var bg = getComputedStyle(root).getPropertyValue('--qs-page-bg').trim();
-      var vars = (JSON.parse(localStorage.getItem('qs-palette-v1')) || {}).vars;
+      var vars = (JSON.parse(localStorage.getItem('qs-palette-v2')) || {}).vars;
       var cached = vars && vars[bg];
       for (var name in cached) root.style.setProperty(name, cached[name]);
     } catch (e) { /* no storage, no cache: fall through to the defaults */ }

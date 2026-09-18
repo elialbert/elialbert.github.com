@@ -9,6 +9,7 @@
        instead of queueing behind the bundles at the foot of the body. -->
   <link rel="preconnect" href="https://s3.amazonaws.com" crossorigin>
   <script src="/media/qs-palette.js"></script>
+  <script src="/media/qs-headers.js"></script>
 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.2/css/bootstrap.min.css" integrity="sha512-rt/SrQ4UNIaGfDyEXZtNcyWvQeOq0QLygHluFQcSjaGB04IxWhal71tKuzP6K8eYXYB6vJV4pHkXcmFGGQ1/0w==" crossorigin="anonymous" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/chartist/0.11.4/chartist.min.css" integrity="sha256-seGyqLj5T52Hx8W7/YTajtNXGXQf+IksfkcaKGoTkbY=" crossorigin="anonymous" />
@@ -22,7 +23,7 @@
       try {
         var root = document.documentElement;
         var bg = getComputedStyle(root).getPropertyValue('--qs-page-bg').trim();
-        var vars = (JSON.parse(localStorage.getItem('qs-palette-v1')) || {}).vars;
+        var vars = (JSON.parse(localStorage.getItem('qs-palette-v2')) || {}).vars;
         var cached = vars && vars[bg];
         for (var name in cached) root.style.setProperty(name, cached[name]);
       } catch (e) { /* no storage, no cache: fall through to the defaults */ }
@@ -34,45 +35,53 @@
 </head>
 
 <body class='background'>
-  <div class='container padding-bottom-small padding-top-small'>
-    <div class='row'>
-      <div class='col-12 text-center'>
-        <h4 class='echeader'>
-          <div class='row no-gutters'>
-            <div class='col text-center'>@</div> <div class='col text-center'>e</div> <div class='col text-center'>l</div> <div class='col text-center'>i</div> <div class='col text-center'>a</div> <div class='col text-center'>l</div> <div class='col text-center'>b</div> <div class='col text-center'>e</div> <div class='col text-center'>r</div> <div class='col text-center'>t</div>
-          </div>
-        </h4>
-      </div>
-      <div class='col-12'>
-        <ul class="nav nav-pills" id='ecnav' role='tablist'>
-          <li class="nav-item">
-            <a target="_blank" class="nav-link" id='profiles-tab' data-toggle='tab'
-              href="#profiles" role='tab' aria-controls='profiles'
-              aria-selected='false'>Profiles</a>
-          </li>
-          <li class="nav-item">
-            <a target="_blank" class="nav-link active" id='projects-tab' data-toggle='tab'
-              href='#projects' role='tab' aria-controls='projects' aria-selected="true">Projects</a>
-          </li>
-          <li class="nav-item">
-            <a target="_blank" class="nav-link" id='paid-tab' data-toggle='tab'
-              href='#paid' role='tab' aria-controls='paid' aria-selected="false">Paid</a>
-          </li>
-          <li class="nav-item d-none d-sm-block">
-            <a target="_blank" class="nav-link" id='press-tab' data-toggle='tab'
-              href='#press' role='tab' aria-controls='press' aria-selected="false">Press</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" id='print-tab'
-              href='https://elialbert.com/blog/'>Print</a>
-          </li>
-        </ul>
+  <div class='masthead'>
+    <div class='container padding-bottom-small padding-top-small'>
+      <div class='row'>
+        <div class='col-12 text-center'>
+          <h4 class='echeader'>
+            <div class='row no-gutters'>
+              <div class='col text-center'>@</div> <div class='col text-center'>e</div> <div class='col text-center'>l</div> <div class='col text-center'>i</div> <div class='col text-center'>a</div> <div class='col text-center'>l</div> <div class='col text-center'>b</div> <div class='col text-center'>e</div> <div class='col text-center'>r</div> <div class='col text-center'>t</div>
+            </div>
+          </h4>
+        </div>
+        <div class='col-12'>
+          <ul class="nav nav-pills" id='ecnav' role='tablist'>
+            <li class="nav-item">
+              <a target="_blank" class="nav-link" id='profiles-tab' data-toggle='tab'
+                href="#profiles" role='tab' aria-controls='profiles'
+                aria-selected='false'>Profiles</a>
+            </li>
+            <li class="nav-item">
+              <a target="_blank" class="nav-link active" id='projects-tab' data-toggle='tab'
+                href='#projects' role='tab' aria-controls='projects' aria-selected="true">Projects</a>
+            </li>
+            <li class="nav-item">
+              <a target="_blank" class="nav-link" id='paid-tab' data-toggle='tab'
+                href='#paid' role='tab' aria-controls='paid' aria-selected="false">Paid</a>
+            </li>
+            <li class="nav-item d-none d-sm-block">
+              <a target="_blank" class="nav-link" id='press-tab' data-toggle='tab'
+                href='#press' role='tab' aria-controls='press' aria-selected="false">Press</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" id='print-tab'
+                href='https://elialbert.com/blog/'>Print</a>
+            </li>
+          </ul>
+        </div>
       </div>
     </div>
   </div>
 
-  <div class='tab-content padding-top' id='ecnavContent'>
+
+  <div class='tab-content' id='ecnavContent'>
     <div class="tab-pane fade" id="profiles" role="tabpanel" aria-labelledby="profiles-tab">
+      <div class='qs-head' id='qs-head-profiles' hidden>
+        <div class='container'>
+          <div class='qs-gauges'></div>
+        </div>
+      </div>
       <div class='container'>
         <div class="card-grid card-grid-row">
           <div class="card-wrapper">
@@ -132,18 +141,19 @@
             </div>
           </div>
         </div>
-        <div class="row">
-          <div class="col-12">
-            <div class='padding-bottom margin-bottom padding-top margin-top text-center font-weight-bold font-italic'>
-              <a href='https://bsky.app/profile/elialbert.com' target='_blank' class='twitter-quote'></a>
-            </div>
-          </div>
-        </div>
       </div>
     </div>
 
 
     <div class="tab-pane fade show active" id="projects" role="tabpanel" aria-labelledby="projects-tab">
+      <div class='qs-head' id='qs-head-projects' hidden>
+        <div class='container'>
+          <div class='qs-head-narrow'>
+            <a class='qs-musing' href='https://bsky.app/profile/elialbert.com'
+              target='_blank' rel='noopener'></a>
+          </div>
+        </div>
+      </div>
       <div id='charttest'></div>
       <div class='container'>
         <div class="card-grid">
@@ -237,6 +247,14 @@
       </div>
     </div>
     <div class="tab-pane fade" id="paid" role="tabpanel" aria-labelledby="paid-tab">
+      <div class='qs-head' id='qs-head-paid' hidden>
+        <div class='container'>
+          <div class='qs-head-narrow'>
+            <span class='qs-head-eyebrow'></span>
+            <span class='qs-lookback-text'></span>
+          </div>
+        </div>
+      </div>
       <div class='container'>
         <div class="card-grid card-grid-row">
           <div class="card-wrapper">
@@ -303,6 +321,16 @@
     </div>
 
     <div class="tab-pane fade" id="press" role="tabpanel" aria-labelledby="press-tab">
+      <div class='qs-head' id='qs-head-press' hidden>
+        <div class='container'>
+          <div class='qs-head-narrow'>
+            <span class='qs-head-eyebrow'>Latest One Sentence Media Review</span>
+            <span class='qs-osmr-head'><a class='qs-osmr-title' target='_blank'
+              rel='noopener'></a><span class='qs-osmr-tag' hidden></span></span>
+            <span class='qs-osmr-text'></span>
+          </div>
+        </div>
+      </div>
       <div class='container'>
         <div class="card-grid">
           <div class="card-wrapper">
@@ -380,8 +408,9 @@
     </div>
   </div>
 
-  <div class='under-content'>
-
+  <div class='container page-foot'>
+    <div class='qs-scene' id='qs-scene' hidden></div>
+    <div class='under-content'></div>
   </div>
 
   <script

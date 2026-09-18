@@ -19,6 +19,8 @@
   --qs-link: #6b6b6b;           /* accent made legible on --qs-page-bg */
   --qs-link-on-main: #6b6b6b;   /* accent made legible on --qs-main */
   --qs-chart-dim: #808080;      /* third chart line, >=3:1 on --qs-main */
+  --qs-accent-on-comp1: #ffffff; /* --qs-main made legible on --qs-comp1 */
+  --qs-dim-on-comp1: #c8c8c8;   /* header hairlines, >=3:1 on --qs-comp1 */
 }
 
 .padding-top {
@@ -63,7 +65,15 @@ a.twitter-quote:hover {
   text-decoration: none;
 }
 
-.background {
+body.background {
+  background-color: var(--qs-page-bg);
+}
+
+/* The masthead keeps the white the page opens on. It is full-bleed and the
+   nav's own container sits inside it, so the white spans the window while the
+   pills stay aligned with everything below them. */
+.masthead {
+  background-color: #ffffff;
 }
 /* CSS columns for true masonry layout */
 .card-grid {
@@ -145,7 +155,7 @@ a.twitter-quote:hover {
   padding: 16px;
 }
 .tab-content {
-  background-color: #efefef;
+  background-color: var(--qs-page-bg);
   padding-bottom: 60px;
 }
 .echeader {
@@ -167,15 +177,17 @@ a.twitter-quote:hover {
     width:;
 }*/
 
+.page-foot {
+  padding-bottom: 40px;
+}
+
 .under-content {
-  position: absolute;
   height: 120px;
   background-color: var(--qs-main);
-  width: 100%;
 }
 
 .under-content.has-chart {
-  border: 1px solid #000;
+  border: 1px solid var(--qs-chart-dim);
 }
 
 /* All three lines are drawn on --qs-main, so all three are derived from it. */
@@ -193,4 +205,228 @@ a.twitter-quote:hover {
 
 .float-right {
   float: right;
+}
+
+
+/* Page headers ---------------------------------------------------------------
+   A full-width band at the top of each tab, drawn by /media/qs-headers.js.
+
+   These are the only thing on the site that sits on --qs-comp1: every other
+   surface — cards, the chart panel — sits on --qs-main, and the accent is
+   reserved for buttons and pills on top of it. Inverting that pair is what
+   makes a band read as a different kind of object without inventing a third
+   colour, and it costs nothing to the palette, which still ships two hexes.
+
+   Each band ships hidden and is opened by the script once it has content, so
+   a field that came back null is a band that never appears rather than an
+   empty stripe of accent. */
+.qs-head[hidden] {
+  display: none;
+}
+
+.qs-head {
+  background-color: var(--qs-comp1);
+  color: var(--qs-on-comp1);
+  padding: 24px 0;
+}
+
+.tab-pane > .container {
+  padding-top: 30px;
+}
+
+.qs-head-narrow {
+  max-width: 42rem;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.qs-head-eyebrow {
+  display: block;
+  text-align: center;
+  font-size: 0.72rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--qs-accent-on-comp1);
+  margin-bottom: 10px;
+}
+
+/* Links on a band are on --qs-comp1, not on the page background and not on a
+   card, so neither --qs-link nor --qs-link-on-main is the right colour here.
+   There is no third derivation for it: text on the band is --qs-on-comp1, and
+   an underline is what carries the linkness. */
+.qs-head a {
+  color: var(--qs-on-comp1);
+}
+
+/* Both bands are a musing — the latest one on Projects, an older one on Paid —
+   so they are one piece of typography, shown with a label above it on Paid and
+   without one, unattributed, on Projects. */
+.qs-musing,
+.qs-lookback-text {
+  display: block;
+  font-style: italic;
+  font-size: 1.05rem;
+  line-height: 1.5;
+}
+
+/* The Projects one is an anchor to Bluesky, so it has to be told to keep the
+   band's own foreground rather than take Bootstrap's link colour. */
+a.qs-musing,
+a.qs-musing:hover {
+  color: var(--qs-on-comp1);
+  text-decoration: none;
+}
+
+/* The newest review, on Press. */
+.qs-osmr-head {
+  display: block;
+  margin-bottom: 8px;
+}
+
+.qs-osmr-title {
+  font-weight: 700;
+  font-size: 1.05rem;
+}
+
+a.qs-osmr-title,
+a.qs-osmr-title:hover {
+  color: var(--qs-on-comp1);
+  text-decoration: underline;
+}
+
+/* A filing label: the card ground, borrowed onto the band. */
+.qs-osmr-tag {
+  display: inline-block;
+  background-color: var(--qs-main);
+  color: var(--qs-on-main);
+  font-size: 0.66rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 2px 9px;
+  border-radius: 2px;
+  margin-left: 10px;
+  vertical-align: 2px;
+}
+
+.qs-osmr-tag[hidden] {
+  display: none;
+}
+
+.qs-osmr-text {
+  display: block;
+  line-height: 1.5;
+}
+
+/* The gauges, on Profiles -----------------------------------------------------
+   Instrument faces on the band: the plate is --qs-main, so everything drawn on
+   it derives from --qs-main exactly as the chart's lines do. */
+.qs-gauges {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 14px 26px;
+}
+
+.qs-gauge {
+  width: 132px;
+  margin: 0;
+  text-align: center;
+}
+
+.qs-gauge svg {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.qs-gauge-plate {
+  fill: var(--qs-main);
+  stroke: var(--qs-dim-on-comp1);
+  stroke-width: 1;
+}
+
+.qs-gauge-arc {
+  fill: none;
+  stroke: var(--qs-on-main);
+  stroke-width: 0.8;
+}
+
+/* The top of the scale, in the accent made legible on the plate. */
+.qs-gauge-danger {
+  fill: none;
+  stroke: var(--qs-link-on-main);
+  stroke-width: 2.6;
+}
+
+.qs-gauge-tick {
+  stroke: var(--qs-on-main);
+  stroke-width: 0.7;
+  opacity: 0.55;
+}
+
+.qs-gauge-tick-major {
+  stroke-width: 1.4;
+  opacity: 1;
+}
+
+.qs-gauge-num {
+  fill: var(--qs-on-main);
+  font-size: 6.5px;
+  text-anchor: middle;
+  opacity: 0.8;
+}
+
+.qs-gauge-needle {
+  fill: var(--qs-on-main);
+}
+
+/* The sweep up from rest is added a frame after the band opens, so it actually
+   runs; without the class the needle is simply placed. */
+.qs-gauges-live .qs-gauge-needle {
+  transition: transform 1.1s cubic-bezier(0.2, 0.9, 0.25, 1);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .qs-gauges-live .qs-gauge-needle {
+    transition: none;
+  }
+}
+
+/* A sensor that did not answer loses its needle. With no printed readout there
+   is nothing else to say "no reading" with, and a needle resting on zero would
+   say the opposite of the truth. */
+.qs-gauge-missing .qs-gauge-needle {
+  display: none;
+}
+
+.qs-gauge-name {
+  display: block;
+  margin-top: 8px;
+  font-size: 0.68rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--qs-accent-on-comp1);
+}
+
+/* The scene ------------------------------------------------------------------
+   The twelve-words-or-fewer image the night's two colours were taken off, sat
+   just above the chart they were taken for. No panel and no label: it is a
+   caption for the whole page rather than a section of it, and --qs-link is the
+   accent made legible on the page ground — the sentence that produced the
+   palette, rendered in it.
+
+   Empty on a fallback night, and hidden rather than stale when it is: the other
+   prose stays true when it ages, but a scene describing colours that are not on
+   screen does not. */
+.qs-scene[hidden] {
+  display: none;
+}
+
+.qs-scene {
+  padding: 0 0 14px;
+  text-align: center;
+  font-style: italic;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  color: var(--qs-link);
 }
