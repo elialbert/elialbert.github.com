@@ -104,6 +104,21 @@ body.background {
   .card-grid {
     column-count: 1;
   }
+
+  /* Desktop columns fill top-to-bottom (3 per column), so on mobile reorder
+     the projects to read like the desktop rows, left to right. */
+  #projects .card-grid {
+    display: flex;
+    flex-direction: column;
+  }
+  #projects .card-wrapper:nth-child(2) { order: 3; }
+  #projects .card-wrapper:nth-child(3) { order: 6; }
+  #projects .card-wrapper:nth-child(4) { order: 1; }
+  #projects .card-wrapper:nth-child(5) { order: 4; }
+  #projects .card-wrapper:nth-child(6) { order: 7; }
+  #projects .card-wrapper:nth-child(7) { order: 2; }
+  #projects .card-wrapper:nth-child(8) { order: 5; }
+  #projects .card-wrapper:nth-child(9) { order: 8; }
 }
 
 /* Row-based grid layout for profiles and paid */
